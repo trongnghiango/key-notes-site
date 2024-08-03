@@ -3,6 +3,7 @@ author: Hugo Authors
 title: Rich Content
 subtitle: Three examples of how to use Hugo shortcodes
 date: 2021-01-14
+draft: true
 description: A brief description of Hugo Shortcodes
 categories:
   - syntax
