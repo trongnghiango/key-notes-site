@@ -1,8 +1,26 @@
 ---
 author: Authors
 date: 2024-08-04
-modified: Sunday 4th August 2024 05:28:37
 title: Thuc hanh Vipassana
+description: >-
+  Sample article showcasing basic Markdown syntax and formatting for HTML
+  elements.
+tags:
+  - markdown
+  - css
+  - html
+categories:
+  - meditation
+series:
+  - Themes Guide
+aliases:
+  - migrate-from-jekyl
+##
+## Options for overriding site defaults
+##
+readingSpeed: 20
+readingSpeedMin: 50
+readingSpeedMax: 100
 ---
 
 << [[2024-08-03]] | [[2024-08-05]] >>
