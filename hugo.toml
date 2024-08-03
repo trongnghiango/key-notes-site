@@ -41,28 +41,24 @@ weight = 6
 
 [params]
 abbrDateFmt = "Jan 2"
-author = "Blog Author"
+author = "Author"
 brandIconFile = "images/brandIcon.svg"
 dateFmt = "2006-01-02"
-subtitle = "Description about Blog Author"
+subtitle = "Description about Author"
 
   [[params.social]]
   name = "GitHub"
-  url = "https://github.com/ian-s-mcb"
+  url = "https://github.com/trongnghiango"
 
   [[params.social]]
   name = "GitLab"
   url = "https://gitlab.com/ian-s-mcb"
 
   [[params.social]]
-  name = "Quizlet"
-  url = "https://quizlet.com/ian-s-mcb"
-
-  [[params.social]]
   name = "Reddit"
-  url = "https://www.reddit.com/user/ian-s-mcb"
+  url = "https://www.reddit.com/user/vvvvvvvvvvv"
 
   [[params.social]]
   name = "StackOverflow"
-  url = "https://stackoverflow.com/users/3417846/ian-s-mcb"
+  url = "https://stackoverflow.com/users/98359385/vvvvvvvv"
 
