@@ -4,8 +4,7 @@ title: thuc hanh vipassana
 subtitle: This is my description # Optional
 date: 2024-08-04
 modified: Sunday 4th August 2024 01:53:13
-description: >-
-  This is my description
+description: This is my description
 tags:
 	- zen
 categories:
