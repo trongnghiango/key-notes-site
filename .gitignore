@@ -1,3 +1,6 @@
+# Hugo
+public
+
 # Build and Release Folders
 bin/
 bin-debug/
@@ -14,7 +17,6 @@ bin-release/
 *.ipa
 *.apk
 
-# Hugo
-public/
+
 
 # Backup Files
