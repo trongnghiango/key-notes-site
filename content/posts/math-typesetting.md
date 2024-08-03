@@ -2,6 +2,7 @@
 author: Hugo Authors
 title: Math Typesetting
 date: 2021-01-12
+draft: true
 description: A brief guide to setup KaTeX
 categories:
   - syntax

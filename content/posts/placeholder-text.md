@@ -3,6 +3,7 @@ author: Hugo Authors
 title: Placeholder Text
 subtitle: A whole bunch of lorem ipsum
 date: 2021-01-01
+draft: true
 description: Lorem Ipsum Dolor Si Amet
 categories:
   - uncategorized
