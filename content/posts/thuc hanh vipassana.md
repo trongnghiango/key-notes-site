@@ -3,7 +3,7 @@ title: Thuc hanh Vipassana
 author: Authors
 date: 2024-08-04
 draft: false
-Lastmod: 2021-08-18
+Lastmod: 2024-08-04
 description: Guide to emoji usage in Hugo
 categories:
   - syntax
