@@ -1,9 +1,10 @@
 ---
 title: Thuc hanh Vipassana
 author: Authors
-date: 2024-08-04
+date: 2024-08-03
 draft: false
-description: Guide to emoji usage in cccc
+description: 
+  Guide to emoji usage in cccc
 categories:
   - meditation
 tags:
