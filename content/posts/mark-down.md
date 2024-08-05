@@ -26,8 +26,7 @@ readingSpeedMax: 100
 
 
 ### What is Markdown?
-Markdown is a lightweight markup language that you can use to format plain text documents.  
-Write docs for your GitHub projects, edit your GitHub profile _README_ etc. You fill find it all here.  
+Markdown là một ngôn ngữ đánh dấu nhẹ mà bạn có thể sử dụng để định dạng tài liệu văn bản thuần túy. Viết tài liệu cho các dự án GitHub của bạn, chỉnh sửa _README_ hồ sơ GitHub của bạn, v.v. Bạn sẽ tìm thấy tất cả ở đây.
 
 Let's dive into it. ⤵️
 
@@ -407,7 +406,7 @@ _________
 <a name="html" />
 
 ## HTML
-You can also use raw HTML in your Markdown file. Most of the times that will work well, but sometimes you can experience some differences that you are not used to when working with standard HTML. Using CSS will not work.
+Bạn cũng có thể sử dụng HTML thô trong tệp Markdown của mình. Hầu hết các trường hợp sẽ hoạt động tốt, nhưng đôi khi bạn có thể gặp một số khác biệt so với khi làm việc với HTML tiêu chuẩn. Việc sử dụng CSS sẽ không hoạt động.
 
 ```
 <h1>This is a heading</h1>
@@ -445,7 +444,7 @@ You can also use raw HTML in your Markdown file. Most of the times that will wor
 <br />
 
 <p>Quick hack for <strong><em>centering image</em></strong>?</p>
-<p align="center"><img src="https://user-images.githubusercontent.com/46372998/212544874-d0654588-82f7-44f2-bbfa-2bf85fd73854.png" width="200" /></p>
+<p style="text-align:center"><img src="https://user-images.githubusercontent.com/46372998/212544874-d0654588-82f7-44f2-bbfa-2bf85fd73854.png" width="200" /></p>
 
 <details>
   <summary>One more quick hack? 🎭</summary>

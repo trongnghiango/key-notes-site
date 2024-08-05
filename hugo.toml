@@ -1,6 +1,6 @@
 baseURL = 'https://kaka-notes.netlify.app/'
 languageCode = 'en-us'
-title = 'My Key Notes'
+title = 'K@ka Notes'
 theme = 'smigle'
 
 [[menu.main]]

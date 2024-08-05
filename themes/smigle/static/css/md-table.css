@@ -43,3 +43,9 @@
 .content table tr td :last-child {
   margin-bottom: 0;
 }
+
+.content blockquote {
+  margin: 20px 0;
+  padding: 0 14px;
+  border-inline-start: 3px solid rgb(218, 218, 219);
+}
