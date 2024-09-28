@@ -5,6 +5,7 @@ date: 2024-09-28
 draft: false
 description: >-
   create react-native app by one cli
+summary: Create react-native app by one cli
 categories:
   - mobile apps
   - frontend

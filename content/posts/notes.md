@@ -1,7 +1,6 @@
 ---
 author: Hugo Authors
-title: Placeholder Text
-subtitle: A whole bunch of lorem ipsum
+title: Sync Notes
 date: 2024-08-04
 draft: false
 description: Lorem Ipsum Dolor Si Amet
@@ -9,7 +8,7 @@ categories:
   - uncategorized
 tags:
   - markdown
-  - text
+  - notes
 ---
 
 ### Source
