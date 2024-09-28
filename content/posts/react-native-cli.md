@@ -1,7 +1,7 @@
 ---
 author: NGHIA
 title: Create react native app via cli
-date: 2024-01-01
+date: 2024-09-28
 draft: false
 description: >-
   create react-native app by one cli
