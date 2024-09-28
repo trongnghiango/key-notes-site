@@ -1,10 +1,10 @@
 ---
 author: NGHIA
 title: Create react native app via cli
-subtitle: create react native app using cli
 date: 2024-01-01
 draft: false
-description: create react-native app by one cli
+description: >-
+  create react-native app by one cli
 categories:
   - mobile apps
   - frontend
@@ -12,6 +12,12 @@ tags:
   - react-native
   - javascript
   - frontend
+##
+## Options for overriding site defaults
+##
+readingSpeed: 20
+readingSpeedMin: 50
+readingSpeedMax: 100
 ---
 
 ## create reactnative app
