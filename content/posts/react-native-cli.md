@@ -20,7 +20,7 @@ readingSpeedMin: 50
 readingSpeedMax: 100
 ---
 
-## create reactnative app
+# Create react native app
 If you previously installed a global react-native-cli package, please remove it as it may cause unexpected issues:
 
 ``` sh
@@ -32,4 +32,6 @@ You can use React Native Community CLI to generate a new project. Let's create a
 ``` sh
 npx @react-native-community/cli@latest init AwesomeProject
 ```
+
+# ...
 
