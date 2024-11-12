@@ -41,8 +41,8 @@ const userSchema = new mongoose.Schema({
   createdBy: {
     type: mongoose.Schema.Types.ObjectId,
     required: true,
-    // Thêm trường này để xác định loại người tạo
-    ref: 'User', // Mặc định là User, có thể là Admin hoặc Manager
+    // Sử dụng refPath để tham chiếu đến Model tương ứng
+    refPath: 'createdByType',
   },
   createdByType: {
     type: String,
