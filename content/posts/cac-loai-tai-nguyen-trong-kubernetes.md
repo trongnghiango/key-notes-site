@@ -1,3 +1,13 @@
+---
+date: 2024-11-11
+modified: Tuesday 11th October 2024 05:28:37
+title: Các loại tài nguyên trong Kubernetes 
+draft: false
+categories:
+  - kubernetes
+  - deployment
+---
+
 Trong Kubernetes, có nhiều loại `kind` (loại tài nguyên) khác nhau, mỗi loại phục vụ cho các mục đích khác nhau trong việc quản lý ứng dụng và hạ tầng. Dưới đây là một số loại `kind` phổ biến:
 
 ### 1. **Pod**
