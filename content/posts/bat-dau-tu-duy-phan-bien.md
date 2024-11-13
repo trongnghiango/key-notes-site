@@ -9,7 +9,7 @@ categories:
 ---
 
 ## Đặt vấn đề:
-  * [Thế nào là tư duy phản biện?](https://kaka-notes.netlify.app/posts/the-nao-la-tu-duy-phan-bien)
+  * [Thế nào là tư duy phản biện?](./the-nao-la-tu-duy-phan-bien.md)
   * Khi nào ta sử dụng tư duy phản biện?
   * Tại sao chúng ta cần tư duy phản biện?
   * Chúng ta tư duy phản biện như thế nào?
