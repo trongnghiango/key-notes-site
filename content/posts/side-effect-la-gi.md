@@ -17,3 +17,8 @@ categories:
   }
   ```
   > Dựa vào ví dụ trên ta có thể kết luận thêm cho hàm side effect: cùng 1 tham số đầu vào có thể có những kết quả khác nhau.
+
+### Một số ví dụ thường gặp:
+- Ghi file
+- Gửi HTTP Request.
+- Thay đổi dữ liệu trong Database
