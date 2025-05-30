@@ -5,3 +5,9 @@ command = "hugo --gc --minify"
 [build.environment]
 HUGO_VERSION = "0.130.0"
 HUGO_THEME = "smigle"
+
+[[redirects]]
+  from = "https://kaka-notes.netlify.app/*"
+  to = "https://notes.khabodo.fun/:splat"
+  status = 301
+  force = true
