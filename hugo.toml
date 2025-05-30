@@ -1,4 +1,4 @@
-baseURL = 'https://kaka-notes.netlify.app/'
+baseURL = "https://notes.khabodo.fun"
 languageCode = 'en-us'
 title = 'K@ka Notes'
 theme = 'smigle'
