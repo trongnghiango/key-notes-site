@@ -1,6 +1,6 @@
 ---
 date: 2024-11-11
-modified: Tuesday 11th October 2024 07:28:37
+modified: 2024-10-11T07:28:37Z
 title: Đã có Docker vì sao lại cần đến Kubernetes 
 draft: false
 categories:

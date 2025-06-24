@@ -1,0 +1,17 @@
+{{ define "main" }}
+  <main id="terms" class="main-content">
+    {{/*
+      Hiển thị tiêu đề của trang (ví dụ: "Tags" hoặc "Categories").
+      .Title sẽ tự động lấy từ cấu hình taxonomy của bạn.
+    */}}
+    <header class="page-header">
+      <h1>{{ .Title }}</h1>
+    </header>
+
+    {{/*
+      Phần này sẽ gọi đến partial "terms.html" để hiển thị danh sách các term.
+      Đây là một cách tổ chức tốt, giữ cho file này gọn gàng.
+    */}}
+    {{ partial "terms.html" . }}
+  </main>
+{{ end }}

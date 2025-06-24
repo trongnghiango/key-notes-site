@@ -1,6 +1,6 @@
 ---
 date: 2025-01-05
-modified: Friday 6th January 2025 12:00:00
+modified: 2025-01-06T12:00:00Z
 title: Hướng dẫn cài đặt Syncthing trên Ubuntu
 draft: false
 categories:

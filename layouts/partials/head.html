@@ -1,0 +1,40 @@
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="{{ .Site.Params.description }}"
+  />
+  <title>{{ if not .IsHome }}{{ .Title }} | {{ end }}{{ .Site.Title }}</title>
+
+  {{/* --- Nhúng các file CSS từ /static --- */}}
+  <link rel="stylesheet" href="{{ "/css/reset.css" | relURL }}"/>
+  <link rel="stylesheet" href="{{ "/css/font.css" | relURL }}"/>
+  <link rel="stylesheet" href="{{ "/css/smigle.css" | relURL }}"/>
+  {{/* Thêm file CSS mới cho nút bấm và các kiểu tùy chỉnh khác */}}
+  <link rel="stylesheet" href="{{ "/css/custom.css" | relURL }}"/>
+
+  {{/* --- Script chống nháy cho Light/Dark Mode --- */}}
+  <script>
+    (function() {
+      // Hàm này chạy ngay lập tức để tránh màn hình bị nháy (flicker)
+      const theme = localStorage.getItem('theme'); // Lấy lựa chọn đã lưu của người dùng
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches; // Kiểm tra cài đặt hệ điều hành
+      
+      // Nếu người dùng đã chọn 'dark', hoặc chưa chọn gì và hệ điều hành là dark, thì thêm class 'dark'
+      if (theme === 'dark' || (theme !== 'light' && prefersDark)) {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+  {{/* --- Kết thúc Script --- */}}
+
+  {{/* Các thẻ link icon và manifest của bạn */}}
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+</head>

@@ -1,6 +1,6 @@
 ---
 date: 2024-11-14
-modified: Wednesday 14th October 2024 22:28:37
+modified: 2024-10-14T22:28:37Z
 title: Side Effect là gì?
 draft: false
 categories:

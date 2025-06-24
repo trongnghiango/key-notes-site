@@ -1,6 +1,6 @@
 ---
 date: 2024-11-24
-modified: Sunday 24th November 2024 05:28:37
+modified: 2024-11-24T05:28:37Z
 title: Worker trong Nodejs - Cách xử lý những request api có tải lớn - Tính toán phức tạp và tính đồng thời cao. 
 draft: false
 categories:

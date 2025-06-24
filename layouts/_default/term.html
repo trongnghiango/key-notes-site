@@ -1,0 +1,39 @@
+{{ define "main" }}
+  <main id="archive" class="main-content">
+    <header class="page-header">
+      {{/*
+        Dòng này sẽ tự động hiển thị "Tag: Linux" hoặc "Category: Huong Dan".
+        .Data.Singular sẽ trả về "tag" hoặc "category".
+        Hàm `title` sẽ viết hoa nó thành "Tag" hoặc "Category".
+        .Title sẽ là tên của tag/category đó.
+      */}}
+      <h1>{{ .Data.Singular | title }}: {{ .Title }}</h1>
+
+      {{/* Tùy chọn: hiển thị mô tả của term nếu có */}}
+      {{ with .Content }}
+        <div class="term-description">
+          {{ . }}
+        </div>
+      {{ end }}
+    </header>
+
+    {{/*
+      Phần này lặp qua tất cả các bài viết thuộc term này.
+      Bạn có thể chọn một trong hai cách hiển thị:
+    */}}
+
+    {{/* --- LỰA CHỌN 1: Tái sử dụng partial "postsByDate.html" nếu bạn thích giao diện đó --- */}}
+    {{ partial "postsByDate.html" . }}
+
+
+    {{/* --- LỰA CHỌN 2: Tái sử dụng "summary.html" nếu bạn muốn hiển thị tóm tắt đầy đủ --- */}}
+    {{/* 
+    <div class="post-list">
+      {{ range .Pages }}
+        {{ .Render "summary" }}
+      {{ end }}
+    </div> 
+    */}}
+
+  </main>
+{{ end }}

@@ -1,6 +1,6 @@
 ---
 date: 2024-11-22
-modified: Saturday 22th October 2024 05:28:37
+modified: 2024-10-22T05:28:37Z
 title: Những câu hỏi cần thiết để giúp bạn xác định cách tiếp cận Con trỏ hay không
 categories:
   - golang

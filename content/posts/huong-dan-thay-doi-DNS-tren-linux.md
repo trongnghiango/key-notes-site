@@ -1,6 +1,6 @@
 ---
 date: 2025-04-14
-modified: Monday 14th April 2025 12:00:00
+modified: 2025-04-14T12:00:00Z
 title: Hướng dẫn thay đổi DNS bằng cli trên linux.
 categories:
   - network
@@ -9,6 +9,7 @@ categories:
 
 Dưới đây là hướng dẫn chi tiết để cấu hình DNS tùy chỉnh trên Arch Linux, áp dụng cho cả **systemd-resolved**, **NetworkManager**, và **static DNS**:
 
+<!--more-->
 ---
 
 ## **1. Xác định dịch vụ quản lý mạng đang sử dụng**

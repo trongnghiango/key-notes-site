@@ -1,7 +1,7 @@
 
 ---
 date: 2025-01-06
-modified: Thusday 6th January 2025 02:10:00
+modified: 2025-01-06T02:10:00Z
 title: Cách sử dụng Đa luồng với "worker threads" trong Node.js
 draft: false
 categories:

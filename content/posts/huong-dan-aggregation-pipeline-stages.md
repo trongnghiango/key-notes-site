@@ -1,6 +1,6 @@
 ---
 date: 2024-11-12
-modified: Tuesday 12th October 2024 12:28:37
+modified: 2024-10-12T12:28:37Z
 title: Hướng dẫn về Aggregation Pipeline trong mongo
 draft: false
 categories:

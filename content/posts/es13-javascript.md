@@ -1,6 +1,6 @@
 ---
 date: 2024-11-07
-modified: Tuesday 7th October 2024 07:28:37
+modified: 2024-10-07T07:28:37Z
 title: Những thay đổi của Javascript trong bản cập nhật ES13 (es2022)
 draft: true
 categories:

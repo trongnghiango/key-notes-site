@@ -1,6 +1,6 @@
 ---
 date: 2024-11-12
-modified: Tuesday 12th October 2024 17:28:37
+modified: 2024-10-12T17:28:37Z
 title: Bắt đầu với tư duy phản biện
 draft: false
 categories:

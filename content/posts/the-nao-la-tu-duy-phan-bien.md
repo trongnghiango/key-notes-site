@@ -1,6 +1,6 @@
 ---
 date: 2024-11-12
-modified: Tuesday 12th October 2024 17:30:37
+modified: 2024-10-12T17:30:37Z
 title: Thế nào là tư duy phản biện?
 draft: false
 categories:

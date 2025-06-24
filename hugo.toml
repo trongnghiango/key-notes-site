@@ -1,64 +1,83 @@
-baseURL = "https://notes.khabodo.fun"
-languageCode = 'en-us'
-title = 'K@ka Notes'
-theme = 'smigle'
+# hugo.toml
+baseURL = "https://kaka-notes.netlify.app/"
+languageCode = "en-us"
+title = "Kaka Notes"
+pagination.pagerSize = 5
+
+# Cấu hình Menu chính
+# TOML sử dụng "array of tables" (mảng các bảng) cho các cấu trúc lặp lại như menu
+[[menu.main]]
+  identifier = "home"
+  name = "Home"
+  url = "/"
+  weight = 1
 
 [[menu.main]]
-identifier = "home"
-name = "Home"
-url = "/"
-weight = 1
+  identifier = "about"
+  name = "About"
+  url = "/about/"
+  weight = 2
 
 [[menu.main]]
-identifier = "about"
-name = "About"
-url = "/about/"
-weight = 2
+  identifier = "posts"
+  name = "Posts"
+  url = "/posts/"
+  weight = 3
 
 [[menu.main]]
-identifier = "posts"
-name = "Posts"
-url = "/posts/"
-weight = 3
+  identifier = "categories"
+  name = "Categories"
+  url = "/categories/"
+  weight = 4
 
 [[menu.main]]
-identifier = "categories"
-name = "Categories"
-url = "/categories/"
-weight = 4
+  identifier = "tags"
+  name = "Tags"
+  url = "/tags/"
+  weight = 5
 
 [[menu.main]]
-identifier = "tags"
-name = "Tags"
-url = "/tags/"
-weight = 5
+  identifier = "rss"
+  name = "RSS"
+  url = "/index.xml"
+  weight = 6
 
-[[menu.main]]
-identifier = "rss"
-name = "RSS"
-url = "/index.xml"
-weight = 6
-
+# Các tham số tùy chỉnh của theme (Params)
+# Tất cả các tham số sẽ nằm trong một "bảng" (table) lớn là [params]
 [params]
-abbrDateFmt = "Jan 2"
-author = "Author"
-brandIconFile = "images/brandIcon.svg"
-dateFmt = "2006-01-02"
-subtitle = "Description about Author"
+  abbrDateFmt = "Jan 2"
+  author = "Blog Author"
+  brandIconFile = "images/brandIcon.svg"
+  dateFmt = "2025-01-02"
+  subtitle = "Description about Blog Author"
+  
+  ##
+  ## Các tùy chọn để ghi đè theme hoặc mặc định của trang
+  ##
+  #customStylesheets = ["css/custom.css"] # Mảng được viết trong ngoặc vuông
+  #readingSpeed = 600
+  #readingSpeedMin = 25
+  #readingSpeedMax = 175
+
+  # Mạng xã hội cũng là một "array of tables" bên trong [params]
+  [[params.social]]
+    name = "GitHub"
+    url = "https://github.com/trongnghiango"
 
   [[params.social]]
-  name = "GitHub"
-  url = "https://github.com/trongnghiango"
+    name = "GitLab"
+    url = "https://gitlab.com/ntnghiatn"
 
   [[params.social]]
-  name = "GitLab"
-  url = "https://gitlab.com/ian-s-mcb"
+    name = "Reddit"
+    url = "https://www.reddit.com/user/abc"
 
   [[params.social]]
-  name = "Reddit"
-  url = "https://www.reddit.com/user/vvvvvvvvvvv"
+    name = "StackOverflow"
+    url = "https://stackoverflow.com/users/42949924/hsffhsj"
 
-  [[params.social]]
-  name = "StackOverflow"
-  url = "https://stackoverflow.com/users/98359385/vvvvvvvv"
 
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

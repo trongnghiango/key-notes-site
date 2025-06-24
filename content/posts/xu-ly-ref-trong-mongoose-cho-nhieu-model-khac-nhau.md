@@ -1,6 +1,6 @@
 ---
 date: 2024-11-12
-modified: Tuesday 12th October 2024 11:28:37
+modified: 2024-10-12T11:28:37Z
 title: Xử lý một trường ref trong Mongoose cho nhiều Model khác nhau
 draft: false
 categories:

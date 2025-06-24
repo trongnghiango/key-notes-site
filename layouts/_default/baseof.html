@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  {{ partial "head.html" . }}
+  <body>
+    <div id="root">
+      {{ partial "header.html" . }}
+      <div id="content">
+        {{ block "main" . }}{{ end }}
+      </div>
+      {{ partial "footer.html" . }}
+    </div>
+
+    {{/* Thêm các file JS vào cuối body để không chặn việc render trang */}}
+    {{/* Script xử lý nút chuyển đổi theme */}}
+    <script src="{{ "/js/theme-toggle.js" | relURL }}" defer></script>
+    {{/* Script xử lý nút copy code (nếu có) */}}
+    <script src="{{ "/js/copy-code.js" | relURL }}" defer></script>
+    {{/* end: user script*/}}
+  </body>
+</html>

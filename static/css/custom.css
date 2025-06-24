@@ -1,0 +1,241 @@
+/* static/css/custom.css */
+
+/* --- Căn chỉnh Header --- */
+/* Bọc nav và nút bấm vào một div để dễ căn chỉnh */
+.header-right-controls {
+  display: flex;
+  justify-content: center; /* Căn giữa nav */
+  align-items: center;
+  position: relative; /* Tạo khung tham chiếu cho nút bấm */
+  margin: 15px 0;
+}
+
+/* --- CSS cho Nút Chuyển Đổi Theme --- */
+#theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: var(--fontcolor); /* Lấy màu từ biến */
+  /* Đặt ở góc phải của container */
+  position: absolute;
+  right: 0; 
+}
+
+#theme-toggle svg {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+}
+
+/* Mặc định (Light mode), ẩn icon mặt trăng */
+html:not(.dark) .icon-moon {
+  display: none;
+}
+
+/* Khi ở Dark mode, ẩn icon mặt trời */
+html.dark .icon-sun {
+  display: none;
+}
+
+/* --- CSS cho Nút Copy Code (nếu có) --- */
+div.highlight {
+  position: relative;
+  background-color: var(--prebgcolor); /* Dùng biến để đồng bộ màu nền */
+}
+
+.copy-code-button {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  padding: 6px 8px;
+  background-color: #555;
+  color: #eee;
+  border: 1px solid #666;
+  border-radius: 5px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+div.highlight:hover .copy-code-button {
+  opacity: 1;
+}
+
+.copy-code-button:hover {
+  background-color: #666;
+}
+
+
+/* --- START: Tăng kích thước font cho Menu (Bản nâng cấp) --- */
+
+header nav a {
+  font-size: 1.1rem;
+  
+  /* Thêm một chút đệm ngang để các mục menu không dính vào nhau */
+  padding: 0 0.3em; 
+
+  /* Cần thiết để padding hoạt động đúng cách trên thẻ <a> */
+  display: inline-block; 
+}
+/* --- END: Tăng kích thước font cho Menu (Bản nâng cấp) --- */
+
+/* --- Tăng kích thước các tiêu đề --- */
+
+/* Bạn cũng có thể cần điều chỉnh cả font-weight nếu muốn nó đậm hơn */
+h1 {
+  font-size: 2.5rem; /* Ví dụ: ~40px */
+  font-weight: 700; /* 700 là bold */
+}
+
+h2 {
+  font-size: 2rem; /* Ví dụ: ~32px */
+}
+
+h3 {
+  font-size: 1.75rem; /* Ví dụ: ~28px */
+}
+
+h4 {
+  font-size: 1.5rem; /* Ví dụ: ~24px */
+}
+
+h5 {
+  font-size: 1.25rem; /* Ví dụ: ~20px */
+}
+
+h6 {
+  font-size: 1rem; /* Ví dụ: ~16px, bằng với chữ thường */
+}
+
+
+/* --- START:Các CSS tùy chỉnh khác của bạn ở trên --- */
+
+
+/* --- CSS cho Mục Lục (TOC) --- */
+#toc-container {
+  /* Dùng biến để tự động đổi màu nền và viền */
+  background-color: var(--dimcolor); 
+  border: 1px solid var(--border-color);
+  
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  margin: 2rem 0; /* Tạo khoảng cách với nội dung trên và dưới */
+}
+
+#toc-title {
+  margin-top: 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-color); /* Dùng biến màu viền */
+  font-size: 1.2em; /* Cho tiêu đề "Mục lục" nhỏ hơn tiêu đề bài viết */
+}
+
+/* Định dạng danh sách bên trong TOC */
+#toc-container nav#TableOfContents ul {
+  padding-left: 1rem;
+  margin-top: 1rem;
+}
+
+#toc-container nav#TableOfContents li {
+  margin-bottom: 0.5rem;
+  list-style-type: none; /* Bỏ dấu chấm đầu dòng mặc định */
+}
+
+/* Các mục con thụt vào sâu hơn */
+#toc-container nav#TableOfContents ul ul {
+  padding-left: 1.5rem;
+  margin-top: 0.5rem;
+}
+/* --- END:Các CSS tùy chỉnh khác của bạn ở trên --- */
+
+/* --- START:Sửa lỗi canh lề cho danh sách bài viết (postsByDate) --- */
+
+#postsByDate {
+  list-style: none;
+  padding-left: 3rem ; /* Bỏ phần thụt đầu dòng mặc định của <ul> */
+}
+
+/* Biến mỗi hàng <li> thành một container Flexbox */
+#postsByDate li {
+  display: flex; /* Đây là dòng quan trọng nhất */
+  align-items: baseline; /* Canh lề cột ngày và dòng đầu tiên của title theo đường cơ sở của chữ */
+  margin-bottom: 0.8rem; /* Thêm một chút khoảng cách giữa các bài viết */
+}
+
+/* Định dạng cho cột ngày tháng */
+#postsByDate .date {
+  flex-shrink: 0; /* Ngăn không cho cột này bị co lại */
+  width: 80px; /* Cho nó một độ rộng cố định để các title luôn bắt đầu ở cùng một vị trí */
+  color: var(--secondary-text-color); /* Dùng màu chữ phụ cho đỡ nổi bật */
+  font-family: monospace; /* Font chữ đơn cách thường đẹp cho ngày tháng */
+}
+
+/* Cột title sẽ tự động chiếm hết phần không gian còn lại */
+#postsByDate .title {
+  flex-grow: 1; /* Cho phép khối này giãn ra để lấp đầy không gian */
+}
+
+#postsByDate .title a {
+  /* Giữ nguyên các định dạng link của bạn */
+}
+
+/* --- END:Sửa lỗi canh lề cho danh sách bài viết (postsByDate) --- */
+
+
+
+
+/* --- STRART: CSS cho Nút Copy Code --- */
+
+/* Bắt buộc: Tạo khung tham chiếu cho nút copy */
+div.highlight {
+  position: relative;
+}
+
+.copy-code-button {
+  /* Định vị ở góc trên bên phải */
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  
+  /* Giao diện nút */
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em; /* Khoảng cách giữa icon và chữ */
+  padding: 4px 8px;
+  background-color: #444; /* Màu nền nút */
+  color: #eee; /* Màu của icon và chữ */
+  border: 1px solid #666;
+  border-radius: 5px;
+  font-family: monospace;
+  font-size: 0.9em;
+  cursor: pointer;
+  
+  opacity: 0; /* Mặc định ẩn đi */
+  transition: opacity 0.2s ease-in-out, background-color 0.2s;
+}
+
+/* Hiển thị nút khi người dùng di chuột vào khối mã */
+div.highlight:hover .copy-code-button {
+  opacity: 1;
+}
+
+/* Thay đổi giao diện khi di chuột vào nút */
+.copy-code-button:hover {
+  background-color: #555;
+}
+
+/* Khi đã copy thành công */
+.copy-code-button.copied {
+  background-color: #2a7a2a; /* Màu xanh lá */
+  color: #fff;
+}
+
+.copy-code-button svg {
+  width: 16px;
+  height: 16px;
+}
+/* --- END: CSS cho Nút Copy Code --- */
+
+.icon-link .icon {
+  border-radius: 4px;
+}

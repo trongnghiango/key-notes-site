@@ -1,6 +1,6 @@
 ---
 date: 2024-11-11
-modified: Tuesday 11th October 2024 05:28:37
+modified: 2024-10-11T05:28:37Z
 title: Các loại tài nguyên trong Kubernetes 
 draft: false
 categories:

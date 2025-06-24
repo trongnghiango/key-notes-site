@@ -1,6 +1,6 @@
 ---
 date: 2025-01-01
-modified: Wednesday 1st January 2025 11:00:00
+modified: 2025-01-01T11:00:00Z
 title: Cách tạo nhanh dự án python và quản lý dependencies.
 draft: false
 categories:

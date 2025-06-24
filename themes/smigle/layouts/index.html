@@ -1,9 +1,0 @@
-{{ define "main" }}
-<main class="markdown-body">
-	{{ $paginator := .Paginate (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) }}
-	{{ range $paginator.Pages }}
-	{{ .Render "summary" }}
-	{{ end }}
-	{{ partial "pagination.html" . }}
-</main>
-{{ end }}

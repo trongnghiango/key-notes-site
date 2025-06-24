@@ -1,6 +1,6 @@
 ---
 date: 2025-01-05
-modified: Wedneday 5th January 2025 22:10:00
+modified: 2025-01-05T22:10:00Z
 title: Những tùy chọn Tsconfig.json Essential bạn nên sử dụng
 draft: false
 categories:

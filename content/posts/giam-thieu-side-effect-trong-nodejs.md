@@ -1,6 +1,6 @@
 ---
 date: 2024-11-15
-modified: Thusday 15th October 2024 10:28:37
+modified: 2024-10-15T10:28:37Z
 title: Giảm thiểu Side Effect trong Nodejs.
 draft: false
 categories:
