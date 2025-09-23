@@ -3,6 +3,12 @@ title: About
 layout: default
 ---
 
-Ut vitae sagittis tortor. Aliquam euismod vel elit id porttitor. Sed sit amet feugiat urna, quis semper ipsum. Ut vitae ligula ultrices, porttitor ipsum nec, accumsan est. Nunc posuere felis non mauris volutpat interdum. Sed consequat arcu est, eget consequat enim feugiat rhoncus. Nunc sit amet rhoncus libero, venenatis tristique eros. Duis feugiat sem ac eros maximus gravida. Cras mollis vulputate risus, eget tincidunt neque porttitor vitae. Sed sit amet volutpat urna. Aenean ultricies turpis eget porta porttitor.
+### About Me
 
-Duis eget nibh ut nisi blandit pulvinar id vel mauris. Quisque quis magna dapibus, iaculis magna in, semper augue. Donec ullamcorper justo sed dignissim dictum. Sed in purus ac magna ultrices pharetra. Nam id lacus in urna varius euismod at a erat. Cras justo nisl, finibus nec laoreet vitae, ultrices pulvinar velit. Morbi ornare dolor eget pellentesque lobortis. Aliquam consequat tellus erat, at suscipit ipsum ultrices lobortis. Proin malesuada orci in nunc pellentesque volutpat. Phasellus tincidunt suscipit sagittis. Aenean in sodales est. Vivamus eu odio sit amet lacus porttitor venenatis. Nulla elit lectus, convallis ut orci quis, pharetra varius mi. Proin vitae laoreet diam.
+Xin chào, tôi là một người mê lập trình và thích vọc vạch công nghệ. Tôi đã từng thử sức với nhiều ngôn ngữ khác nhau, từ **Java, JavaScript/TypeScript, Python, Golang** cho đến cả **Bash shell**. Tôi bắt đầu bằng việc viết ứng dụng Android, rồi dần dần tìm đến React Native, ReactJS, và cuối cùng là tự mình xây dựng cả backend lẫn frontend cho những dự án cá nhân.
+
+Trong quá trình làm việc, tôi cũng học được cách triển khai ứng dụng bằng container, tìm hiểu Kubernetes, và tất nhiên là không thể thiếu Git để quản lý mọi thứ. Ngoài lập trình, một niềm vui khác của tôi là **Linux** – tôi dùng Arch Linux, tự thiết lập môi trường với **Neovim**, và có cả một bộ **dotfiles** để “cá nhân hóa” hệ thống theo phong cách riêng.
+
+Với tôi, code không chỉ là công việc, mà còn là niềm vui để sáng tạo, học hỏi và chia sẻ cùng mọi người.
+
+
