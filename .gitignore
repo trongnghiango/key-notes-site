@@ -18,5 +18,7 @@ bin-release/
 *.apk
 
 
+#
+.idea/
 
 # Backup Files

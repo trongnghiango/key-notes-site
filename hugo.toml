@@ -48,7 +48,7 @@ pagination.pagerSize = 5
   abbrDateFmt = "Jan 2"
   author = "Blog Author"
   brandIconFile = "images/brandIcon.svg"
-  dateFmt = "2025-01-02"
+  dateFmt = "2006-01-02"
   subtitle = "Description about Blog Author"
   
   ##
