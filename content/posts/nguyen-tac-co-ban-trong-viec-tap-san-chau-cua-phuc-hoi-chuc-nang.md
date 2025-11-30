@@ -7,10 +7,11 @@ imageBig = ""
 authors = ["Kaka"]
 tags = ["Phục Hồi Chức Năng"]
 categories = ["Y Khoa"]
+toc = true
 draft = false
 +++
 
-# **Nguyên Tắc Vàng Khi Tập Cơ Sàn Chậu: “Thở Ra Co Vào – Hít Vào Thả Lỏng”**
+## **Nguyên Tắc Vàng Khi Tập Cơ Sàn Chậu: “Thở Ra Co Vào – Hít Vào Thả Lỏng”**
 
 _(Dành cho người mất kiểm soát tiểu tiện sau sinh, sau tai biến hoặc yếu sàn chậu)_
 
@@ -18,7 +19,7 @@ Tập cơ sàn chậu (pelvic floor) là nền tảng quan trọng giúp cải t
 
 Vậy nguyên tắc then chốt là gì?
 
-## ⭐ **Nguyên Tắc Cơ Bản Bằng Vàng: “Thở Ra Co Vào – Hít Vào Thả Lỏng”**
+### ⭐ **Nguyên Tắc Cơ Bản Bằng Vàng: “Thở Ra Co Vào – Hít Vào Thả Lỏng”**
 
 Hãy ghi nhớ câu thần chú đơn giản này:
 
@@ -29,9 +30,9 @@ Hãy ghi nhớ câu thần chú đơn giản này:
 
 ---
 
-## **Vì Sao Lại Phải Làm Như Vậy? (Giải Thích Theo Sinh Lý Học)**
+### **Vì Sao Lại Phải Làm Như Vậy? (Giải Thích Theo Sinh Lý Học)**
 
-### **1. Khi bạn HÍT VÀO**
+#### **1. Khi bạn HÍT VÀO**
 
 - Cơ hoành hạ xuống
 - Áp lực ổ bụng **tăng lên**
@@ -39,7 +40,7 @@ Hãy ghi nhớ câu thần chú đơn giản này:
 
 👉 Lúc này, nếu bạn cố gắng “co” sàn chậu, cơ phải làm **2 việc cùng lúc**: chịu lực + co siết → **dễ mệt, kém hiệu quả**, thậm chí làm nặng thêm tình trạng són tiểu.
 
-### **2. Khi bạn THỞ RA**
+#### **2. Khi bạn THỞ RA**
 
 - Cơ hoành nâng lên
 - Áp lực trong bụng **giảm xuống**
@@ -51,23 +52,23 @@ Bạn có thể hình dung như nâng một vật nhẹ trong lúc thở ra: **c
 
 ---
 
-## **Hướng Dẫn Thực Hành Chuẩn: Kết Hợp Hơi Thở Với Động Tác**
+### **Hướng Dẫn Thực Hành Chuẩn: Kết Hợp Hơi Thở Với Động Tác**
 
-### **1. Chuẩn bị**
+#### **1. Chuẩn bị**
 
 - Ngồi hoặc nằm thoải mái
 - Thả lỏng toàn cơ thể
 - Đặt tay lên bụng để cảm nhận hơi thở
 
-### **2. Thực hiện từng bước**
+#### **2. Thực hiện từng bước**
 
-#### **Bước 1 – Hít vào nhẹ bằng mũi**
+##### **Bước 1 – Hít vào nhẹ bằng mũi**
 
 - Bụng phình nhẹ
 - **Thả lỏng 100% vùng sàn chậu**
 - Không cố gắng làm gì cả – chỉ “thả cho nó mềm”
 
-#### **Bước 2 – Thở ra bằng miệng thật chậm**
+##### **Bước 2 – Thở ra bằng miệng thật chậm**
 
 Ngay khi bắt đầu thở ra:
 
@@ -80,33 +81,33 @@ Ngay khi bắt đầu thở ra:
 **Giữ co** suốt thời gian bạn thở ra
 → Nếu thở ra 5 giây → bạn co 5 giây.
 
-#### **Bước 3 – Hít vào và THẢ LỎNG hoàn toàn**
+##### **Bước 3 – Hít vào và THẢ LỎNG hoàn toàn**
 
 - Cảm giác đáy chậu **chùng xuống – mềm ra**
 - Đây là bước cực kỳ quan trọng để cơ được phục hồi.
 
 ---
 
-## **Làm Rõ Một Số Ví Dụ Nhiều Người Hay Hỏi**
+### **Làm Rõ Một Số Ví Dụ Nhiều Người Hay Hỏi**
 
-### **“Có cần gồng bụng không?”**
+#### **“Có cần gồng bụng không?”**
 
 ❌ Tuyệt đối KHÔNG.
 Nếu bụng cứng, bạn đang dùng sai nhóm cơ.
 
-### **“Nhíu hậu môn – thâu âm đạo có đúng không?”**
+#### **“Nhíu hậu môn – thâu âm đạo có đúng không?”**
 
 ✔ Đúng.
 Đó chính là cảm giác co cơ sàn chậu, nhưng chỉ thực hiện **khi thở ra**.
 
-### **“Nâng mu – kéo xương cụt lên có đúng không?”**
+#### **“Nâng mu – kéo xương cụt lên có đúng không?”**
 
 ✔ Đúng.
 Đây là hình ảnh giúp bạn cảm nhận cả khối sàn chậu nâng lên.
 
 ---
 
-## **Những Lỗi Rất Phổ Biến Cần Tránh**
+### **Những Lỗi Rất Phổ Biến Cần Tránh**
 
 - **Nín thở khi co cơ** → tăng áp lực, tập sai hoàn toàn
 - **Gồng mông, bụng hoặc đùi** → mất tác dụng của bài tập
@@ -118,7 +119,7 @@ Nhớ rằng:
 
 ---
 
-## **Tóm Lại – Hãy Ghi Nhớ 2 Dòng Quan Trọng Nhất**
+### **Tóm Lại – Hãy Ghi Nhớ 2 Dòng Quan Trọng Nhất**
 
 **Hít vào → Thả lỏng sàn chậu
 Thở ra → Co nhẹ và nâng sàn chậu lên**
