@@ -1,12 +1,12 @@
 +++
-title = 'Nguyen Tac Co Ban Trong Viec Tap San Chau Cua Phuc Hoi Chuc Nang'
+title = 'Nguyên Tắc Cơ Bản Trong Việc Tập Sàn Chậu Trong Phục Hồi Chức Năng'
 description = ""
 date = '2025-11-30T14:42:30+07:00'
 image = ""
 imageBig = ""
 authors = ["Kaka"]
-tags = []
-categories = ["general", "phuc hoi chuc nang"]
+tags = ["Phục Hồi Chức Năng"]
+categories = ["Y Khoa"]
 draft = false
 +++
 
