@@ -1,8 +1,10 @@
+
 html {
   overflow-y: scroll
 }
+
 :root {
-  /* Đây là các biến cho LIGHT MODE (mặc định) */
+  /* Các biến cho LIGHT MODE */
   --bgcolor: #f8f9fa;
   --dimcolor: #eee;
   --fontcolor: #000;
@@ -10,18 +12,27 @@ html {
   --visitedcolor: #551a8b;
   --precolor: #fff;
   --prebgcolor: #000;
+
+  /* --- Mới thêm: Màu viền và màu chữ phụ cho Light Mode --- */
+  --border-color: #ccc;           /* Màu xám nhẹ cho đường viền */
+  --secondary-text-color: #555;   /* Màu xám đậm cho ngày tháng/text phụ */
 }
 
-/* Các biến này sẽ được áp dụng khi thẻ <html> có class="dark" */
+/* Các biến cho DARK MODE */
 html.dark {
-   --bgcolor: #222;
-   --dimcolor: #333;
-   --fontcolor: #ddd;
-   --linkcolor: #5bf;
-   --visitedcolor: #ae5ee0;
-   --precolor: #fff;
-   --prebgcolor: #383838;
+  --bgcolor: #222;
+  --dimcolor: #333;
+  --fontcolor: #ddd;
+  --linkcolor: #5bf;
+  --visitedcolor: #ae5ee0;
+  --precolor: #fff;
+  --prebgcolor: #383838;
+
+  /* --- Mới thêm: Màu viền và màu chữ phụ cho Dark Mode --- */
+  --border-color: #444;          /* Màu xám tối cho đường viền */
+  --secondary-text-color: #999;  /* Màu xám sáng cho ngày tháng/text phụ */
 }
+
 
 body {
   color: var(--fontcolor);

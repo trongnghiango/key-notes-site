@@ -1,4 +1,19 @@
 /* static/css/custom.css */
+/* --- START: Custom Heading Colors (Elegant Teal) --- */
+:root {
+  /* Light Mode: Xanh ngọc đậm */
+  --heading-color: #00796b;
+}
+
+html.dark {
+  /* Dark Mode: Xanh ngọc sáng */
+  --heading-color: #80cbc4;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--heading-color);
+}
+/* --- END: Custom Heading Colors --- */
 
 /* --- Căn chỉnh Header --- */
 /* Bọc nav và nút bấm vào một div để dễ căn chỉnh */
@@ -148,40 +163,64 @@ h6 {
 }
 /* --- END:Các CSS tùy chỉnh khác của bạn ở trên --- */
 
-/* --- START:Sửa lỗi canh lề cho danh sách bài viết (postsByDate) --- */
-
-#postsByDate {
-  list-style: none;
-  padding-left: 3rem ; /* Bỏ phần thụt đầu dòng mặc định của <ul> */
-}
-
-/* Biến mỗi hàng <li> thành một container Flexbox */
+/* --- 2. BIẾN DANH SÁCH BÀI VIẾT THÀNH DẠNG THẺ (CARD) --- */
+/* --- SỬA LẠI LAYOUT CARD BÀI VIẾT (2 CỘT) --- */
 #postsByDate li {
-  display: flex; /* Đây là dòng quan trọng nhất */
-  align-items: baseline; /* Canh lề cột ngày và dòng đầu tiên của title theo đường cơ sở của chữ */
-  margin-bottom: 0.8rem; /* Thêm một chút khoảng cách giữa các bài viết */
+  /* Kích hoạt chế độ Flexbox để chia cột */
+  display: flex;
+
+  /* Căn giữa theo chiều dọc:
+     - Dùng 'center' nếu muốn Ngày nằm giữa khối (như hình bạn gửi).
+     - Dùng 'flex-start' nếu muốn Ngày nằm treo ở trên cùng (khi tiêu đề quá dài).
+  */
+  align-items: center;
+
+  /* Khoảng cách giữa cột Ngày và cột Tiêu đề */
+  gap: 15px;
+
+  /* Các thuộc tính trang trí cũ (giữ nguyên) */
+  background-color: var(--bgcolor);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s;
 }
 
-/* Định dạng cho cột ngày tháng */
+/* --- CỘT 1: NGÀY THÁNG (Cố định) --- */
 #postsByDate .date {
-  flex-shrink: 0; /* Ngăn không cho cột này bị co lại */
-  width: 80px; /* Cho nó một độ rộng cố định để các title luôn bắt đầu ở cùng một vị trí */
-  color: var(--secondary-text-color); /* Dùng màu chữ phụ cho đỡ nổi bật */
-  font-family: monospace; /* Font chữ đơn cách thường đẹp cho ngày tháng */
+  /* QUAN TRỌNG: Ngăn không cho cột ngày bị co lại khi tiêu đề dài */
+  flex-shrink: 0;
+
+  /* Đặt chiều rộng cố định cho cột này */
+  width: 70px;
+
+  /* Các trang trí khác */
+  text-align: center;
+  margin-right: 0; /* Đã dùng gap ở trên nên bỏ margin */
+  background-color: var(--dimcolor);
+  padding: 6px 4px;
+  border-radius: 4px;
+  font-size: 0.9rem;
 }
 
-/* Cột title sẽ tự động chiếm hết phần không gian còn lại */
+/* --- CỘT 2: TIÊU ĐỀ (Tự động giãn) --- */
 #postsByDate .title {
-  flex-grow: 1; /* Cho phép khối này giãn ra để lấp đầy không gian */
+  /* QUAN TRỌNG: Cho phép tiêu đề chiếm hết khoảng trống còn lại */
+  flex-grow: 1;
+
+  /* Đảm bảo text không bị tràn ra ngoài */
+  min-width: 0;
+
+  /* Reset lại hiển thị để text xuống dòng tự nhiên */
+  display: block;
 }
 
 #postsByDate .title a {
-  /* Giữ nguyên các định dạng link của bạn */
+  /* Hiển thị block để vùng click rộng hơn */
+  display: block;
+  line-height: 1.5; /* Khoảng cách dòng thoáng hơn cho tiêu đề dài */
 }
-
-/* --- END:Sửa lỗi canh lề cho danh sách bài viết (postsByDate) --- */
-
-
 
 
 /* --- STRART: CSS cho Nút Copy Code --- */
@@ -239,3 +278,86 @@ div.highlight:hover .copy-code-button {
 .icon-link .icon {
   border-radius: 4px;
 }
+
+/* --- 3. TRAU CHUỐT HEADER & FOOTER --- */
+
+/* Header: Thêm viền dưới mờ thay vì thẻ <hr> cứng nhắc */
+header {
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 1px dashed var(--border-color); /* Đường kẻ đứt nét tinh tế */
+}
+
+/* Ẩn thẻ hr mặc định của header đi vì ta đã dùng border */
+header hr {
+  display: none;
+}
+
+/* Làm đẹp thanh Menu */
+header nav a {
+  /* Biến menu thành các nút bấm nhỏ */
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: background-color 0.2s;
+  font-weight: 500;
+}
+
+header nav a:hover {
+  background-color: var(--dimcolor);
+  text-decoration: none;
+  color: var(--fontcolor);
+}
+
+/* Footer: Chữ nhỏ và màu nhạt hơn */
+footer {
+  margin-top: 60px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-color);
+  font-size: 0.9rem;
+  color: var(--secondary-text-color);
+}
+
+footer a {
+  font-weight: 600;
+  color: var(--fontcolor);
+}
+
+
+/* --- START: Active Menu State --- */
+
+/* Trạng thái mặc định của menu (đã có ở bước trước, nhắc lại để đảm bảo đồng bộ) */
+header nav a {
+  padding: 6px 12px;
+  border-radius: 6px;
+  margin: 0 2px; /* Khoảng cách nhỏ giữa các nút */
+  transition: all 0.2s ease;
+  position: relative; /* Để căn chỉnh các hiệu ứng con nếu cần */
+  opacity: 0.8; /* Làm mờ nhẹ các menu chưa chọn để menu chính nổi hơn */
+}
+
+/* Trạng thái KHI ĐANG Ở TRANG ĐÓ (Active) */
+header nav a.active {
+  opacity: 1; /* Hiển thị rõ 100% */
+
+  /* Đổi màu chữ sang màu chủ đạo (dùng biến màu Heading ta đã tạo) */
+  color: var(--heading-color, #00796b);
+
+  /* Thêm nền mờ nhẹ trùng màu chủ đạo (tạo cảm giác nút được nhấn) */
+  /* Do CSS chưa hỗ trợ tốt việc lấy biến màu hex làm alpha, ta dùng màu xám nhẹ an toàn */
+  background-color: rgba(125, 125, 125, 0.1);
+
+  font-weight: 700; /* In đậm hơn bình thường */
+}
+
+/* Tùy chỉnh riêng cho Dark Mode để nền menu active sáng hơn chút */
+html.dark header nav a.active {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Hiệu ứng khi di chuột vào (Hover) */
+header nav a:hover {
+  opacity: 1;
+  background-color: var(--dimcolor);
+  text-decoration: none; /* Đảm bảo không bị gạch chân */
+}
+/* --- END: Active Menu State --- */
