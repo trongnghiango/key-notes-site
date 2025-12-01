@@ -8,6 +8,7 @@ authors = ["Kaka"]
 tags = []
 categories = ["nestjs"]
 draft = false
+toc = true
 +++
 
 Khi mới học NestJS, chúng ta thường thấy các tutorial hướng dẫn đăng ký Global Pipes, Interceptors hay Filters ngay trong file `main.ts` như thế này:
@@ -33,13 +34,13 @@ Hôm nay mình sẽ chia sẻ một **Architectural Decision** (quyết định 
 
 Nếu bạn định hướng làm dự án lớn, hãy tránh `main.ts` vì 3 lý do:
 
-### 1. **Mất tính năng Dependency Injection (DI):** Đây là điểm yếu lớn nhất. File `main.ts` nằm ngoài context của Module. Bạn không thể Inject các Service khác vào Interceptor/Filter.
+1. **Mất tính năng Dependency Injection (DI):** Đây là điểm yếu lớn nhất. File `main.ts` nằm ngoài context của Module. Bạn không thể Inject các Service khác vào Interceptor/Filter.
 
-    - _Ví dụ:_ Bạn muốn Inject `ConfigService` vào Filter để bật tắt log lỗi tùy môi trường? Hoặc Inject `SlackService` để bắn thông báo khi có lỗi 500? Làm ở `main.ts` là chịu chết (hoặc rất cực).
+   - _Ví dụ:_ Bạn muốn Inject `ConfigService` vào Filter để bật tắt log lỗi tùy môi trường? Hoặc Inject `SlackService` để bắn thông báo khi có lỗi 500? Làm ở `main.ts` là chịu chết (hoặc rất cực).
 
-### 2. **Khó Testing:** Việc gắn cứng instance (từ khóa `new`) trong `main.ts` khiến việc viết Integration Test trở nên khó khăn.
+2. **Khó Testing:** Việc gắn cứng instance (từ khóa `new`) trong `main.ts` khiến việc viết Integration Test trở nên khó khăn.
 
-### 3. **Code lộn xộn:** `main.ts` chỉ nên làm nhiệm vụ duy nhất là khởi động server (Bootstrap). Đừng biến nó thành nồi lẩu thập cẩm.
+3. **Code lộn xộn:** `main.ts` chỉ nên làm nhiệm vụ duy nhất là khởi động server (Bootstrap). Đừng biến nó thành nồi lẩu thập cẩm.
 
 ## 2. Giải pháp chuẩn (Best Practice): Sử dụng Custom Providers
 
