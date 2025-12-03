@@ -7,7 +7,7 @@ imageBig = ""
 authors = ["Kaka"]
 tags = ["ssh"]
 categories = ["general"]
-draft = true
+draft = false
 +++
 
 ## Đây là hướng dẫn chi tiết từng bước để tạo và sử dụng cặp khóa SSH (SSH key pair) cho việc kết nối an toàn giữa máy client (máy tính của bạn) và server, áp dụng cho cả trường hợp chung (như đăng nhập VPS) và trường hợp riêng cho Git (GitHub, GitLab, Bitbucket).
