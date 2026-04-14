@@ -22,3 +22,5 @@ bin-release/
 .idea/
 
 # Backup Files
+combine
+project_context.md

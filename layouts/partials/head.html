@@ -1,18 +1,46 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  {{/* 1. Xử lý Logic Description thông minh */}}
+  {{- $description := .Site.Params.description -}} {{/* Mặc định lấy từ config */}}
+  {{- if .Description -}}
+    {{- $description = .Description -}} {{/* Nếu có Description trong Front Matter */}}
+  {{- else if .IsPage -}}
+    {{- $description = .Summary | plainify | truncate 160 -}} {{/* Nếu là bài viết, lấy tóm tắt, xóa tag HTML, giới hạn 160 ký tự */}}
+  {{- end -}}
+  
+  <meta name="description" content="{{ $description }}" />
+  <title>{{ if not .IsHome }}{{ .Title }} | {{ end }}{{ .Site.Title }}</title>
+
+  {{/* Thêm Open Graph (SEO cho Facebook/Zalo/LinkedIn) */}}
+  <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}" />
+  <meta property="og:description" content="{{ $description }}" />
+  <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
+  <meta property="og:url" content="{{ .Permalink }}" />
+  {{ with .Params.image }}<meta property="og:image" content="{{ . | absURL }}" />{{ end }}
+
   <meta
     name="description"
     content="{{ .Site.Params.description }}"
   />
   <title>{{ if not .IsHome }}{{ .Title }} | {{ end }}{{ .Site.Title }}</title>
 
-  {{/* --- Nhúng các file CSS từ /static --- */}}
-  <link rel="stylesheet" href="{{ "/css/reset.css" | relURL }}"/>
-  <link rel="stylesheet" href="{{ "/css/font.css" | relURL }}"/>
-  <link rel="stylesheet" href="{{ "/css/smigle.css" | relURL }}"/>
-  {{/* Thêm file CSS mới cho nút bấm và các kiểu tùy chỉnh khác */}}
-  <link rel="stylesheet" href="{{ "/css/custom.css" | relURL }}"/>
+  {{/* 2. Xử lý Asset Pipeline cho CSS */}}
+  
+  {{/* Tạo danh sách các file CSS cần gom lại */}}
+  {{ $styles := slice 
+    (resources.Get "css/reset.css")
+    (resources.Get "css/font.css")
+    (resources.Get "css/smigle.css")
+    (resources.Get "css/custom.css")
+  }}
+
+  {{/* Thực hiện gom file (Bundle), Nén (Minify) và tạo mã định danh (Fingerprint) */}}
+  {{ $bundle := $styles | resources.Concat "css/main.bundle.css" | minify | fingerprint }}
+
+  {{/* Xuất link CSS đã tối ưu */}}
+  <link rel="stylesheet" href="{{ $bundle.RelPermalink }}" integrity="{{ $bundle.Data.Integrity }}" crossorigin="anonymous">
 
   {{/* --- Script chống nháy cho Light/Dark Mode --- */}}
   <script>
