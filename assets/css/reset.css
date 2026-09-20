@@ -1,92 +1,168 @@
-
-html {
-  overflow-y: scroll
-}
+/* assets/css/reset.css - Design Tokens & Modern CSS Reset */
 
 :root {
-  /* Các biến cho LIGHT MODE */
-  --bgcolor: #f8f9fa;
-  --dimcolor: #eee;
-  --fontcolor: #000;
-  --linkcolor: #00e;
-  --visitedcolor: #551a8b;
-  --precolor: #fff;
-  --prebgcolor: #000;
+  /* --- TYPOGRAPHY STACKS --- */
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Inter", "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  --font-mono: 'Iosevka', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
-  /* --- Mới thêm: Màu viền và màu chữ phụ cho Light Mode --- */
-  --border-color: #ccc;           /* Màu xám nhẹ cho đường viền */
-  --secondary-text-color: #555;   /* Màu xám đậm cho ngày tháng/text phụ */
+  /* --- LIGHT MODE COLOR SYSTEM (Clean Slate & Modern Teal) --- */
+  --bgcolor: #f8fafc;
+  --card-bg: #ffffff;
+  --dimcolor: #f1f5f9;
+  --dimcolor-hover: #e2e8f0;
+
+  --fontcolor: #0f172a;
+  --secondary-text-color: #475569;
+  --muted-text-color: #94a3b8;
+
+  --border-color: #e2e8f0;
+  --border-hover: #cbd5e1;
+
+  /* Brand / Primary Accent */
+  --primary: #0d9488;
+  --primary-hover: #0f766e;
+  --primary-subtle: rgba(13, 148, 136, 0.08);
+  --primary-border: rgba(13, 148, 136, 0.25);
+  --heading-color: #0f172a;
+
+  /* Links */
+  --linkcolor: #0d9488;
+  --visitedcolor: #0d9488;
+  --link-underline: rgba(13, 148, 136, 0.3);
+  --link-underline-hover: #0d9488;
+
+  /* Code Blocks */
+  --code-bg: #111827;
+  --code-header-bg: #0d1117;
+  --code-border: #1f2937;
+  --code-color: #f9fafb;
+  --precolor: #f9fafb;
+  --prebgcolor: #111827;
+
+  /* Inline Code */
+  --inline-code-bg: rgba(13, 148, 136, 0.08);
+  --inline-code-color: #0f766e;
+  --inline-code-border: rgba(13, 148, 136, 0.2);
+
+  /* Blockquotes & Callouts */
+  --quote-bg: rgba(13, 148, 136, 0.04);
+  --quote-border: #0d9488;
+
+  /* Tables */
+  --table-header-bg: #f1f5f9;
+  --table-stripe-bg: rgba(241, 245, 249, 0.5);
+
+  /* Elevation & Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.06), 0 2px 4px -2px rgba(0, 0, 0, 0.04);
+  --shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.2s ease;
+  --transition-slow: 0.3s ease;
 }
 
-/* Các biến cho DARK MODE */
+/* --- DARK MODE COLOR SYSTEM (Deep Space & Luminous Teal) --- */
 html.dark {
-  --bgcolor: #222;
-  --dimcolor: #333;
-  --fontcolor: #ddd;
-  --linkcolor: #5bf;
-  --visitedcolor: #ae5ee0;
-  --precolor: #fff;
-  --prebgcolor: #383838;
+  --bgcolor: #0b0f19;
+  --card-bg: #111827;
+  --dimcolor: #1e293b;
+  --dimcolor-hover: #334155;
 
-  /* --- Mới thêm: Màu viền và màu chữ phụ cho Dark Mode --- */
-  --border-color: #444;          /* Màu xám tối cho đường viền */
-  --secondary-text-color: #999;  /* Màu xám sáng cho ngày tháng/text phụ */
+  --fontcolor: #f1f5f9;
+  --secondary-text-color: #94a3b8;
+  --muted-text-color: #64748b;
+
+  --border-color: #1e293b;
+  --border-hover: #334155;
+
+  /* Brand / Primary Accent */
+  --primary: #2dd4bf;
+  --primary-hover: #5eead4;
+  --primary-subtle: rgba(45, 212, 191, 0.12);
+  --primary-border: rgba(45, 212, 191, 0.3);
+  --heading-color: #f8fafc;
+
+  /* Links */
+  --linkcolor: #2dd4bf;
+  --visitedcolor: #2dd4bf;
+  --link-underline: rgba(45, 212, 191, 0.35);
+  --link-underline-hover: #2dd4bf;
+
+  /* Code Blocks */
+  --code-bg: #0d1117;
+  --code-header-bg: #080b10;
+  --code-border: #1e293b;
+  --code-color: #f1f5f9;
+  --precolor: #f1f5f9;
+  --prebgcolor: #0d1117;
+
+  /* Inline Code */
+  --inline-code-bg: rgba(45, 212, 191, 0.12);
+  --inline-code-color: #5eead4;
+  --inline-code-border: rgba(45, 212, 191, 0.25);
+
+  /* Blockquotes & Callouts */
+  --quote-bg: rgba(45, 212, 191, 0.06);
+  --quote-border: #2dd4bf;
+
+  /* Tables */
+  --table-header-bg: #1e293b;
+  --table-stripe-bg: rgba(30, 41, 59, 0.3);
+
+  /* Elevation & Shadows */
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+  --shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
 }
 
+/* --- BOX SIZING & BASE RESET --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
 body {
-  color: var(--fontcolor);
-  background: var(--bgcolor);
   margin: 0;
+  padding: 0;
+  color: var(--fontcolor);
+  background-color: var(--bgcolor);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.7;
+  transition: background-color var(--transition-slow), color var(--transition-slow);
 }
-a {
-  text-decoration: none;
+
+/* Smooth selection color */
+::selection {
+  background-color: var(--primary-subtle);
+  color: var(--primary);
 }
-a:hover {
-  text-decoration: underline;
+
+/* Custom modern scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
 }
-a:link {
-  color: var(--linkcolor);
+
+::-webkit-scrollbar-track {
+  background: transparent;
 }
-a:visited {
-  color: var(--visitedcolor);
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-hover);
+  border-radius: 4px;
 }
-a:active {
-  color: var(--visitedcolor);
-}
-h1,h2,h3 {
-  line-height: 1.2;
-}
-p > code {
-  color: var(--precolor);
-  background: var(--prebgcolor);
-  padding: 2px;
-}
-pre {
-  color: var(--precolor);
-  background: var(--prebgcolor);
-  padding: 24px;
-  overflow-x: auto;
-}
-article {
-  padding: 5px 0;
-}
-.center  {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-}
-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
-figcaption {
-  color: #888;
-  font: 12px/1.5 monospace;
-  text-align: center;
-}
-figure {
-  margin: auto;
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted-text-color);
 }

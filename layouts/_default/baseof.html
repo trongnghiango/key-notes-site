@@ -10,11 +10,10 @@
       {{ partial "footer.html" . }}
     </div>
 
-    {{/* Thêm các file JS vào cuối body để không chặn việc render trang */}}
-    {{/* Script xử lý nút chuyển đổi theme */}}
-    <script src="{{ "/js/theme-toggle.js" | relURL }}" defer></script>
-    {{/* Script xử lý nút copy code (nếu có) */}}
-    <script src="{{ "/js/copy-code.js" | relURL }}" defer></script>
-    {{/* end: user script*/}}
+    {{/* Hugo Asset Pipeline: Bundle, Minify & Fingerprint JavaScript */}}
+    {{ $jsTheme := resources.Get "js/theme-toggle.js" }}
+    {{ $jsCopy := resources.Get "js/copy-code.js" }}
+    {{ $jsBundle := slice $jsTheme $jsCopy | resources.Concat "js/main.bundle.js" | minify | fingerprint }}
+    <script src="{{ $jsBundle.RelPermalink }}" integrity="{{ $jsBundle.Data.Integrity }}" crossorigin="anonymous" defer></script>
   </body>
 </html>

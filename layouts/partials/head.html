@@ -20,15 +20,11 @@
   <meta property="og:url" content="{{ .Permalink }}" />
   {{ with .Params.image }}<meta property="og:image" content="{{ . | absURL }}" />{{ end }}
 
-  <meta
-    name="description"
-    content="{{ .Site.Params.description }}"
-  />
-  <title>{{ if not .IsHome }}{{ .Title }} | {{ end }}{{ .Site.Title }}</title>
+  {{/* Font Preload for zero CLS and instant rendering */}}
+  <link rel="preload" href="/fonts/iosevka-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/iosevka-bold.woff2" as="font" type="font/woff2" crossorigin>
 
   {{/* 2. Xử lý Asset Pipeline cho CSS */}}
-  
-  {{/* Tạo danh sách các file CSS cần gom lại */}}
   {{ $styles := slice 
     (resources.Get "css/reset.css")
     (resources.Get "css/font.css")
@@ -36,33 +32,29 @@
     (resources.Get "css/custom.css")
   }}
 
-  {{/* Thực hiện gom file (Bundle), Nén (Minify) và tạo mã định danh (Fingerprint) */}}
+  {{/* Gom file, Minify và Fingerprint */}}
   {{ $bundle := $styles | resources.Concat "css/main.bundle.css" | minify | fingerprint }}
 
-  {{/* Xuất link CSS đã tối ưu */}}
   <link rel="stylesheet" href="{{ $bundle.RelPermalink }}" integrity="{{ $bundle.Data.Integrity }}" crossorigin="anonymous">
 
   {{/* --- Script chống nháy cho Light/Dark Mode --- */}}
   <script>
     (function() {
-      // Hàm này chạy ngay lập tức để tránh màn hình bị nháy (flicker)
-      const theme = localStorage.getItem('theme'); // Lấy lựa chọn đã lưu của người dùng
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches; // Kiểm tra cài đặt hệ điều hành
-      
-      // Nếu người dùng đã chọn 'dark', hoặc chưa chọn gì và hệ điều hành là dark, thì thêm class 'dark'
+      const theme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
       if (theme === 'dark' || (theme !== 'light' && prefersDark)) {
         document.documentElement.classList.add('dark');
       }
     })();
   </script>
-  {{/* --- Kết thúc Script --- */}}
 
-  {{/* Các thẻ link icon và manifest của bạn */}}
+  {{/* Favicons & Manifest */}}
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
-  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-  <meta name="msapplication-TileColor" content="#da532c">
-  <meta name="theme-color" content="#ffffff">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0d9488">
+  <meta name="msapplication-TileColor" content="#0d9488">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0b0f19" media="(prefers-color-scheme: dark)">
 </head>

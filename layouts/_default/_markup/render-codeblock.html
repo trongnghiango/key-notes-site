@@ -1,17 +1,7 @@
-{{/*
-  File này sẽ được Hugo tự động gọi mỗi khi nó gặp một khối mã (```).
-  Nó sẽ ghi đè cách Hugo hiển thị khối mã để chúng ta có thể thêm "phép thuật" của mình.
-*/}}
-
-{{/* 
-  Lấy nội dung code gốc (chưa có màu mè, chưa có số dòng) - chính là biến .Inner
-  và lưu nó vào một thuộc tính "data-code". 
-  Hàm safeJS đảm bảo nó an toàn khi đặt trong thuộc tính HTML.
-*/}}
-<div class="code-block-wrapper" data-code="{{ .Inner | safeJS }}">
-  {{/* 
-    Bảo Hugo tiếp tục làm công việc của nó: 
-    hiển thị khối mã với màu mè và số dòng như bình thường bằng hàm `highlight` toàn cục.
-  */}}
+{{/* Hugo Code Block Render Hook with Modern Header */}}
+<div class="code-block-wrapper" data-code="{{ .Inner | safeJS }}" {{ with .Type }}data-lang="{{ . }}"{{ end }}>
+  <div class="code-block-header">
+    <span class="code-lang-label">{{ with .Type }}{{ . | upper }}{{ else }}CODE{{ end }}</span>
+  </div>
   {{ highlight .Inner .Type .Options }}
 </div>
