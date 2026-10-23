@@ -1,9 +1,53 @@
 {{ define "main" }}
-	<main>
-		{{ $paginator := .Paginate (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) }}
-		{{ range $paginator.Pages }}
-			{{ .Render "summary" }}
-		{{ end }}
-		{{ partial "pagination.html" . }}
-	</main>
+<main id="home-stream">
+  {{/* 1. Phần giới thiệu ngắn gọn (Hero Intro) */}}
+  <section class="home-intro">
+    <p class="intro-bio">
+      Xin chào, mình là <strong>Trọng Nghĩa (Kaka)</strong>. Nơi đây lưu trữ các ghi chép cá nhân về Linux, kiến trúc hệ thống, backend và những bài học thực tế trong quá trình làm việc.
+    </p>
+
+    {{/* Các chủ đề nổi bật để lọc nhanh */}}
+    {{ if .Site.Taxonomies.categories }}
+    <div class="topic-pills">
+      <span class="topic-label">Chủ đề:</span>
+      {{ range $name, $taxonomy := .Site.Taxonomies.categories }}
+        {{ if ge (len $taxonomy) 2 }}
+          <a class="topic-pill" href="{{ "/categories/" | relLangURL }}{{ $name | urlize }}">
+            #{{ $name }} <span class="topic-count">{{ len $taxonomy }}</span>
+          </a>
+        {{ end }}
+      {{ end }}
+    </div>
+    {{ end }}
+  </section>
+
+  {{/* 2. Dòng thời gian bài viết gom theo Năm (Timeline Archive) */}}
+  <section class="home-timeline">
+    {{ $allPosts := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
+    {{ range $allPosts.GroupByDate "2006" }}
+      <div class="timeline-year-group">
+        <div class="timeline-year-header">
+          <h2 class="year-title">{{ .Key }}</h2>
+          <span class="year-count">{{ len .Pages }} bài</span>
+          <div class="year-divider"></div>
+        </div>
+
+        <ul class="timeline-list">
+          {{ range .Pages }}
+            <li class="timeline-item">
+              <span class="timeline-date">{{ .Date.Format "02/01" }}</span>
+              <a class="timeline-link" href="{{ .RelPermalink }}">{{ .Title }}</a>
+              <div class="timeline-meta">
+                {{ with .Params.categories }}
+                  <span class="timeline-tag">{{ index . 0 }}</span>
+                {{ end }}
+                <span class="timeline-reading-time">{{ .ReadingTime }}p đọc</span>
+              </div>
+            </li>
+          {{ end }}
+        </ul>
+      </div>
+    {{ end }}
+  </section>
+</main>
 {{ end }}

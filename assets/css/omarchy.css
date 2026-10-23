@@ -476,3 +476,159 @@ footer a:hover {
     color: #000000 !important;
   }
 }
+/* --- 15. HOME TIMELINE ARCHIVE (TỐI ƯU GIAO DIỆN TRANG CHỦ) --- */
+.home-intro {
+  margin-bottom: 2rem;
+  padding: 16px 18px;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+.intro-bio {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-bottom: 0.8rem;
+  color: var(--text);
+}
+
+.topic-pills {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-headings);
+  font-size: 0.82rem;
+}
+
+.topic-label {
+  color: var(--text-muted);
+  font-weight: 600;
+  margin-right: 2px;
+}
+
+.topic-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background-color: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 3px 8px;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.topic-pill:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.topic-count {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  opacity: 0.85;
+}
+
+/* Timeline Year Header */
+.timeline-year-group {
+  margin-bottom: 2.2rem;
+}
+
+.timeline-year-header {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 0.8rem;
+}
+
+.year-title {
+  font-family: var(--font-headings);
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--heading);
+  margin: 0;
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.year-count {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.year-divider {
+  flex: 1;
+  border-bottom: 1px solid var(--border-light);
+  transform: translateY(-4px);
+}
+
+/* Timeline List & Items */
+.timeline-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.timeline-item {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding: 8px 6px;
+  border-bottom: 1px dashed var(--border-light);
+}
+
+.timeline-item:last-child {
+  border-bottom: none;
+}
+
+.timeline-date {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  flex-shrink: 0;
+  width: 50px;
+}
+
+.timeline-link {
+  font-size: 1.02rem;
+  color: var(--text);
+  text-decoration: none;
+  flex: 1;
+  line-height: 1.45;
+}
+
+.timeline-link:hover {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.timeline-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  font-family: var(--font-headings);
+  font-size: 0.78rem;
+}
+
+.timeline-tag {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  padding: 1px 6px;
+  border-radius: 3px;
+}
+
+.timeline-reading-time {
+  color: var(--text-muted);
+  opacity: 0.8;
+}
+
+@media (max-width: 560px) {
+  .timeline-meta {
+    display: none; /* Ẩn bớt meta trên màn hình máy đọc sách siêu nhỏ để tránh tràn */
+  }
+}
