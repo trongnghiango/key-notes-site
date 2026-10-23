@@ -1,13 +1,11 @@
 <article class="summary">
-  <a href="{{ .Permalink }}">
-    <h1 class="title">{{ .Title }}</h1>
-    {{ with .Params.subtitle }}<h3 class="subtitle">{{ . }}</h3>{{ end }}
-  </a>
+  <h2 class="title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+  {{ with .Params.subtitle }}<h3 class="subtitle">{{ . }}</h3>{{ end }}
   {{ partial "postMeta.html" . }}
   <div class="content">
     <p>{{ .Summary }}</p>
     {{ if .Truncated }}
-      <a href="{{ .Permalink }}">Read more...</a>
+      <p style="margin-top: 8px;"><a href="{{ .Permalink }}" style="font-weight: 600;">Đọc tiếp &rarr;</a></p>
     {{ end }}
   </div>
 </article>

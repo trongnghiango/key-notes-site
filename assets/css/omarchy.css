@@ -1,0 +1,478 @@
+/* ==========================================================================
+   OMARCHY THEME - MINIMALIST & E-READER OPTIMIZED (PINE / FOREST GREEN)
+   Tối giản tối đa, không animation giật màn hình E-ink, tốc độ tải cực nhanh.
+   ========================================================================== */
+
+/* --- 1. DESIGN TOKENS (Hệ màu Omarchy Linux) --- */
+:root {
+  /* Font Stacks: Ưu tiên font hệ thống máy đọc sách nếu không load được webfont */
+  --font-body: "Charter", "Bitstream Charter", "Sitka Text", "Cambria", Georgia, serif;
+  --font-headings: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "Iosevka", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* LIGHT MODE (Màu giấy đọc sách ấm tự nhiên + Xanh rêu đậm) */
+  --bg: #fafbf8;
+  --bg-surface: #f1f4ec;
+  --bg-code: #edf1e8;
+  --border: #d4ded2;
+  --border-light: #e4ece2;
+
+  --text: #111c18;              /* Omarchy background làm chữ: cực kỳ sắc nét trên E-ink */
+  --text-muted: #4e6557;        /* Chữ phụ xám rêu */
+  --heading: #0f2b1d;           /* Rêu đậm uy nghiêm */
+  
+  --accent: #2e7d4d;            /* Omarchy green đậm */
+  --accent-hover: #1f5d36;
+  --accent-pine: #3c7d60;       /* Pine green */
+  --link: #246e3e;
+  --link-visited: #3c7d60;
+
+  --max-width: 68ch;            /* Cột đọc sách chuẩn vàng 68 ký tự */
+}
+
+/* DARK MODE (Chuẩn 100% Palette Omarchy Linux: Pine / Deep Forest) */
+html.dark {
+  --bg: #111c18;                /* Nền rêu đen đặc trưng Omarchy */
+  --bg-surface: #182621;        /* lighter_background */
+  --bg-code: #0c1512;           /* dark_background */
+  --border: #32473B;            /* selection Omarchy */
+  --border-light: #23372B;
+
+  --text: #D6D5BC;              /* light_foreground: kem ấm nhã nhặn, chống mỏi mắt */
+  --text-muted: #81B8A8;        /* dark_foreground */
+  --heading: #F7E8B2;           /* bright_foreground: vàng kem sáng sang trọng */
+
+  --accent: #549e6a;            /* green Omarchy */
+  --accent-hover: #63b07a;      /* bright_green */
+  --accent-pine: #509475;       /* accent / blue Omarchy */
+  --link: #63b07a;
+  --link-visited: #81B8A8;
+}
+
+/* --- 2. CSS RESET TỐI GIẢN --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 17px;
+  line-height: 1.75;
+  background-color: var(--bg);
+  color: var(--text);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* Triệt tiêu hoàn toàn animations & transitions cho E-reader */
+*, *::before, *::after {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+}
+
+/* --- 3. LAYOUT CƠ BẢN --- */
+#root {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 20px 48px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+#content {
+  flex: 1 0 auto;
+}
+
+/* --- 4. HEADER & NAVIGATION --- */
+header {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+#brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 1rem;
+}
+
+#brand .icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg-surface);
+}
+
+#brand .text a {
+  text-decoration: none;
+  color: var(--heading);
+}
+
+#brand h1 {
+  font-family: var(--font-headings);
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+#brand h3 {
+  font-family: var(--font-headings);
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.header-right-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+nav {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+nav a {
+  font-family: var(--font-headings);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+  text-decoration: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+}
+
+nav a:hover,
+nav a.active {
+  color: var(--accent);
+  background-color: var(--bg-surface);
+}
+
+#theme-toggle {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  min-height: 36px;
+}
+
+#theme-toggle svg {
+  width: 18px;
+  height: 18px;
+}
+
+html:not(.dark) .icon-moon { display: none; }
+html.dark .icon-sun { display: none; }
+
+/* --- 5. TYPOGRAPHY (CHUẨN SÁCH ĐỌC & MÁY ĐỌC SÁCH) --- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-headings);
+  color: var(--heading);
+  line-height: 1.3;
+  margin-top: 1.8rem;
+  margin-bottom: 0.8rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+
+h1 { font-size: 1.85rem; }
+h2 { font-size: 1.45rem; border-bottom: 1px solid var(--border-light); padding-bottom: 0.3rem; }
+h3 { font-size: 1.25rem; }
+h4 { font-size: 1.1rem; }
+
+p {
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+  color: var(--text);
+}
+
+a {
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  color: var(--accent-hover);
+}
+
+ul, ol {
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+  padding-left: 1.6rem;
+}
+
+li {
+  margin-bottom: 0.35rem;
+}
+
+blockquote {
+  border-left: 3px solid var(--accent);
+  background-color: var(--bg-surface);
+  padding: 12px 18px;
+  margin: 1.5rem 0;
+  border-radius: 0 6px 6px 0;
+  font-style: italic;
+  color: var(--text);
+}
+
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* --- 6. POST META & TAXONOMY --- */
+.post-meta {
+  font-family: var(--font-headings);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.post-meta a {
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.post-meta a:hover {
+  color: var(--accent);
+}
+
+.meta-tags a {
+  display: inline-block;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  padding: 1px 8px;
+  border-radius: 4px;
+  margin-right: 6px;
+  margin-top: 4px;
+  font-size: 0.8rem;
+}
+
+/* --- 7. ARTICLE SUMMARY (TRANG CHỦ) --- */
+.summary {
+  margin-bottom: 2.2rem;
+  padding-bottom: 1.8rem;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.summary .title {
+  margin-top: 0;
+  margin-bottom: 0.4rem;
+  font-size: 1.45rem;
+}
+
+.summary .title a {
+  text-decoration: none;
+  color: var(--heading);
+}
+
+.summary .title a:hover {
+  color: var(--accent);
+}
+
+/* --- 8. MỤC LỤC (TOC) --- */
+#toc-container {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 14px 20px;
+  margin: 1.8rem 0;
+}
+
+#toc-title {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  color: var(--heading);
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+#TableOfContents ul {
+  padding-left: 1.2rem;
+  margin-bottom: 0;
+}
+
+#TableOfContents a {
+  text-decoration: none;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+#TableOfContents a:hover {
+  color: var(--accent);
+}
+
+/* --- 9. CODE BLOCKS & SYNTAX HIGHLIGHTING --- */
+code {
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+  background-color: var(--bg-code);
+  border: 1px solid var(--border);
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: var(--text);
+}
+
+pre {
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  line-height: 1.6;
+  background-color: var(--bg-code) !important;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 14px 16px;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+}
+
+pre code {
+  background-color: transparent !important;
+  border: 0;
+  padding: 0;
+  font-size: inherit;
+}
+
+/* Wrapper khối code & Nút copy */
+.code-block-wrapper {
+  position: relative;
+  margin: 1.5rem 0;
+}
+
+.code-block-wrapper pre {
+  margin: 0;
+}
+
+.copy-code-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.copy-code-button:hover {
+  color: var(--text);
+  border-color: var(--accent);
+}
+
+/* --- 10. HÌNH ẢNH & MEDIA --- */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1.5rem auto;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
+
+/* --- 11. BẢNG BIỂU (TABLES) --- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.95rem;
+}
+
+th, td {
+  border: 1px solid var(--border);
+  padding: 8px 12px;
+  text-align: left;
+}
+
+th {
+  background-color: var(--bg-surface);
+  color: var(--heading);
+  font-weight: 600;
+}
+
+/* --- 12. PHÂN TRANG (PAGINATION) --- */
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+  font-family: var(--font-headings);
+  font-size: 0.9rem;
+}
+
+/* --- 13. FOOTER --- */
+footer {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  font-family: var(--font-headings);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-align: center;
+  line-height: 1.8;
+}
+
+footer a {
+  color: var(--text-muted);
+}
+
+footer a:hover {
+  color: var(--accent);
+}
+
+/* --- 14. E-INK & MONOCHROME SPECIFIC MEDIA QUERIES --- */
+@media (monochrome), (prefers-contrast: more) {
+  body {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+  }
+  a {
+    color: #000000 !important;
+    text-decoration: underline !important;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    color: #000000 !important;
+  }
+  pre, code, blockquote {
+    background: #f0f0f0 !important;
+    border-color: #000000 !important;
+    color: #000000 !important;
+  }
+}
