@@ -2,6 +2,8 @@
 date: 2025-10-05
 modified: 2025-10-05T11:10:37Z
 title: Lộ Trình Học Linux CLI
+featured: true
+description: "Lộ trình học Linux qua giao diện dòng lệnh từ cơ bản đến nâng cao để làm chủ hệ điều hành Unix/Linux."
 draft: false
 toc: true
 aliases:

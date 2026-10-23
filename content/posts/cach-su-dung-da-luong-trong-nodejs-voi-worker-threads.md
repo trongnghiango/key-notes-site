@@ -3,6 +3,8 @@
 date: 2025-01-06
 modified: 2025-01-06T02:10:00Z
 title: Cách sử dụng Đa luồng với "worker threads" trong Node.js
+featured: true
+description: "Giải phóng CPU-bound tasks trong Node.js bằng worker threads: kiến trúc, cách truyền dữ liệu và tối ưu hiệu năng."
 draft: false
 categories:
   - Nodejs

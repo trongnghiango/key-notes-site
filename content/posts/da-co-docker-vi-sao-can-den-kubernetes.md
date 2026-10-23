@@ -1,7 +1,9 @@
 ---
 date: 2024-11-11
 modified: 2024-10-11T07:28:37Z
-title: Đã có Docker vì sao lại cần đến Kubernetes 
+title: Đã có Docker vì sao lại cần đến Kubernetes
+featured: true
+description: "Phân tích bản chất kỹ thuật: khi nào Docker là đủ và tại sao cần đến Kubernetes để điều phối container quy mô lớn." 
 draft: false
 categories:
   - kubernetes

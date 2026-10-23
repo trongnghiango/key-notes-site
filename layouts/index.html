@@ -1,53 +1,139 @@
 {{ define "main" }}
-<main id="home-stream">
-  {{/* 1. Phần giới thiệu ngắn gọn (Hero Intro) */}}
-  <section class="home-intro">
-    <p class="intro-bio">
-      Xin chào, mình là <strong>Trọng Nghĩa (Kaka)</strong>. Nơi đây lưu trữ các ghi chép cá nhân về Linux, kiến trúc hệ thống, backend và những bài học thực tế trong quá trình làm việc.
+<main id="home-portal">
+  {{/* 1. HERO INTRO SECTION */}}
+  <section class="hero-section">
+    <div class="hero-badge">
+      <span class="hero-badge-dot"></span>
+      <span>Đang viết mã & nghiên cứu hệ thống</span>
+    </div>
+
+    <h1 class="hero-title">
+      Xin chào, mình là <span class="hero-name">Trọng Nghĩa</span> (Kaka)
+    </h1>
+
+    <p class="hero-bio">
+      Kỹ sư phần mềm đam mê <strong>Backend Architecture</strong>, <strong>Distributed Systems</strong> và <strong>Linux Kernel/CLI</strong>. Nơi đây là cuốn sổ tay mở để mình lưu lại những giải pháp kỹ thuật, phân tích kiến trúc và kinh nghiệm thực chiến.
     </p>
 
-    {{/* Các chủ đề nổi bật để lọc nhanh */}}
-    {{ if .Site.Taxonomies.categories }}
-    <div class="topic-pills">
-      <span class="topic-label">Chủ đề:</span>
-      {{ range $name, $taxonomy := .Site.Taxonomies.categories }}
-        {{ if ge (len $taxonomy) 2 }}
-          <a class="topic-pill" href="{{ "/categories/" | relLangURL }}{{ $name | urlize }}">
-            #{{ $name }} <span class="topic-count">{{ len $taxonomy }}</span>
-          </a>
-        {{ end }}
+    <div class="hero-actions">
+      <a href="/posts/" class="btn-primary">
+        <span>Xem toàn bộ bài viết</span>
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      </a>
+      <a href="/about/" class="btn-secondary">
+        <span>Về tác giả</span>
+      </a>
+      {{ with .Site.Params.social }}
+        <div class="hero-social-links">
+          {{ range . }}
+            <a href="{{ .url }}" target="_blank" rel="noopener noreferrer" class="social-tag">{{ .name }}</a>
+          {{ end }}
+        </div>
       {{ end }}
     </div>
-    {{ end }}
   </section>
 
-  {{/* 2. Dòng thời gian bài viết gom theo Năm (Timeline Archive) */}}
-  <section class="home-timeline">
-    {{ $allPosts := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
-    {{ range $allPosts.GroupByDate "2006" }}
-      <div class="timeline-year-group">
-        <div class="timeline-year-header">
-          <h2 class="year-title">{{ .Key }}</h2>
-          <span class="year-count">{{ len .Pages }} bài</span>
-          <div class="year-divider"></div>
-        </div>
+  {{/* 2. FEATURED POSTS (BÀI VIẾT NỔI BẬT) */}}
+  {{ $featured := where (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) ".Params.featured" true }}
+  {{ if gt (len $featured) 0 }}
+  <section class="home-section">
+    <div class="section-title-row">
+      <h2 class="section-heading">📌 Bài viết chọn lọc</h2>
+      <a href="/posts/" class="section-link">Tất cả bài viết &rarr;</a>
+    </div>
 
-        <ul class="timeline-list">
-          {{ range .Pages }}
-            <li class="timeline-item">
-              <span class="timeline-date">{{ .Date.Format "02/01" }}</span>
-              <a class="timeline-link" href="{{ .RelPermalink }}">{{ .Title }}</a>
-              <div class="timeline-meta">
-                {{ with .Params.categories }}
-                  <span class="timeline-tag">{{ index . 0 }}</span>
-                {{ end }}
-                <span class="timeline-reading-time">{{ .ReadingTime }}p đọc</span>
-              </div>
-            </li>
+    <div class="featured-grid">
+      {{ range first 3 $featured }}
+        <article class="featured-card">
+          <div class="card-meta">
+            {{ with .Params.categories }}
+              <span class="card-category">{{ index . 0 }}</span>
+            {{ end }}
+            <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 02, 2006" }}</time>
+          </div>
+          <h3 class="card-title">
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+          </h3>
+          {{ with .Description }}
+            <p class="card-description">{{ . }}</p>
+          {{ else with .Params.description }}
+            <p class="card-description">{{ . }}</p>
           {{ end }}
-        </ul>
+          <div class="card-footer">
+            <span class="card-time">{{ .ReadingTime }} phút đọc</span>
+            <a href="{{ .RelPermalink }}" class="card-read-link">Đọc bài &rarr;</a>
+          </div>
+        </article>
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
+
+  {{/* 3. RECENT WRITING (5 BÀI GẦN ĐÂY) */}}
+  <section class="home-section">
+    <div class="section-title-row">
+      <h2 class="section-heading">⚡ Ghi chép mới nhất</h2>
+      <span class="section-hint">5 bài viết gần đây</span>
+    </div>
+
+    {{ $recent := first 5 (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) }}
+    <ul class="timeline-list">
+      {{ range $recent }}
+        <li class="timeline-item">
+          <span class="timeline-date">{{ .Date.Format "02/01" }}</span>
+          <a class="timeline-link" href="{{ .RelPermalink }}">{{ .Title }}</a>
+          <div class="timeline-meta">
+            {{ with .Params.categories }}
+              <span class="timeline-tag">{{ index . 0 }}</span>
+            {{ end }}
+            <span class="timeline-reading-time">{{ .ReadingTime }}p</span>
+          </div>
+        </li>
+      {{ end }}
+    </ul>
+
+    <div class="archive-callout">
+      <a href="/posts/" class="btn-more-posts">
+        <span>Xem toàn bộ {{ len (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) }} bài viết trong Kho Lưu Trữ</span>
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      </a>
+    </div>
+  </section>
+
+  {{/* 4. FOCUS AREAS / CHUYÊN MÔN */}}
+  <section class="home-section">
+    <div class="section-title-row">
+      <h2 class="section-heading">🛠️ Lĩnh vực quan tâm</h2>
+    </div>
+
+    <div class="areas-grid">
+      <div class="area-card">
+        <h3 class="area-title">🐧 Linux & Systems</h3>
+        <p class="area-desc">Arch Linux, Neovim, Shell scripting, dotfiles, quản trị tài nguyên và tối ưu hiệu năng OS.</p>
+        <div class="area-tags">
+          <a href="/categories/linux/" class="area-tag">#linux</a>
+          <a href="/categories/shell/" class="area-tag">#shell</a>
+        </div>
       </div>
-    {{ end }}
+
+      <div class="area-card">
+        <h3 class="area-title">⚙️ Backend & Architecture</h3>
+        <p class="area-desc">Node.js, NestJS, Golang, kiến trúc 3-layer, đa luồng Worker Threads và xử lý tải lớn.</p>
+        <div class="area-tags">
+          <a href="/categories/nodejs/" class="area-tag">#nodejs</a>
+          <a href="/categories/nestjs/" class="area-tag">#nestjs</a>
+        </div>
+      </div>
+
+      <div class="area-card">
+        <h3 class="area-title">🗄️ Database & DevOps</h3>
+        <p class="area-desc">Thiết kế SQL quan hệ 1-N, tối ưu Aggregation Pipeline Mongo, Docker & Kubernetes.</p>
+        <div class="area-tags">
+          <a href="/categories/database/" class="area-tag">#database</a>
+          <a href="/categories/kubernetes/" class="area-tag">#kubernetes</a>
+        </div>
+      </div>
+    </div>
   </section>
 </main>
 {{ end }}
