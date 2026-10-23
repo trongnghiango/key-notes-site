@@ -1,0 +1,16 @@
+{
+  "name": "key-notes-site",
+  "version": "1.0.0",
+  "private": true,
+  "packageManager": "pnpm@12.14.0",
+  "description": "Kaka Notes - Static Blog built with Hugo and hosted on Cloudflare Pages",
+  "scripts": {
+    "dev": "hugo server -D",
+    "build": "hugo --gc --minify",
+    "preview": "wrangler pages dev public",
+    "deploy": "hugo --gc --minify && wrangler pages deploy public --project-name=notes-ciquan"
+  },
+  "devDependencies": {
+    "wrangler": "^3.114.0"
+  }
+}

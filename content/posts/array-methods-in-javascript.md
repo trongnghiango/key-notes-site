@@ -3,6 +3,8 @@ date: 2024-11-05
 modified: 2025-04-14T12:00:00Z
 title: Những phương thức phổ biến của Array trong Javascript
 draft: true
+aliases:
+  - /posts/array-method-in-js/
 categories:
   - javascript
   - data_structures
@@ -28,4 +30,3 @@ const evenNumbers = numbers.filter((num) => num % 2 === 0)
 
 console.log(evenNumbers) // [2, 4, 6, 8, 10]
 ```
-

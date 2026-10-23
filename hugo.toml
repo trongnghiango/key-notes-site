@@ -1,5 +1,5 @@
 # hugo.toml
-baseURL = "https://kaka-notes.netlify.app/"
+baseURL = "https://notes.ciquan.org/"
 locale = "vi-VN"
 title = "Kaka Notes"
 pagination.pagerSize = 5
@@ -43,6 +43,7 @@ pagination.pagerSize = 5
 
 # Các tham số tùy chỉnh của theme (Params)
 [params]
+  mainSections = ["posts"]
   abbrDateFmt = "Jan 02"
   author = "Trọng Nghĩa (Kaka)"
   brandIconFile = "images/brandIcon.svg"
@@ -78,3 +79,6 @@ pagination.pagerSize = 5
     noClasses = true
     style = "dracula"
     tabWidth = 2
+[minify]
+  minifyOutput = true
+  disableXML = false

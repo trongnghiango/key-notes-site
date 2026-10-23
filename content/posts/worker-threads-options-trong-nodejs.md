@@ -4,6 +4,8 @@ modified: 2024-11-24T05:28:37Z
 title: Worker trong Nodejs - Các tham số trong options khi khởi tạo Worker. 
 subtitle: sử dụng Bull và Piscina trong một ứng dụng Node.js, cũng như giám sát hiệu suất và khả năng mở rộng worker.
 draft: false
+aliases:
+  - /posts/worker-trong-nodejs__cac-tham-so-trong-options-khi-khoi-tao-worker/
 categories:
   - nodejs
   - threads

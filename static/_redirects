@@ -1,0 +1,4 @@
+# Cloudflare Pages Redirects
+# Documentation: https://developers.cloudflare.com/pages/configuration/redirects/
+
+https://kaka-notes.netlify.app/* https://notes.ciquan.org/:splat 301!

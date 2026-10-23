@@ -12,6 +12,11 @@
   
   <meta name="description" content="{{ $description }}" />
   <title>{{ if not .IsHome }}{{ .Title }} | {{ end }}{{ .Site.Title }}</title>
+  {{/* Chặn bot/crawlers lập chỉ mục nếu là trang Private */}}
+  {{- if or (eq .Section "private") .Params.private -}}
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet" />
+  {{- end -}}
+  <link rel="canonical" href="{{ .Permalink }}" />
 
   {{/* Thêm Open Graph (SEO cho Facebook/Zalo/LinkedIn) */}}
   <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}" />

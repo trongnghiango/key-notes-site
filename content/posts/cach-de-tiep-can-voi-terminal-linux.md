@@ -4,6 +4,8 @@ modified: 2025-10-05T11:10:37Z
 title: Lộ Trình Học Linux CLI
 draft: false
 toc: true
+aliases:
+  - /posts/251005-cach-de-tiep-can-voi-terminal-linux/
 categories:
   - linux
   - shell
@@ -99,4 +101,3 @@ Sau khi đã quen với các thao tác cơ bản, bạn sẽ học cách quản 
 Để hỗ trợ lộ trình học, bạn có thể tìm đến các nguồn tài liệu và khóa học sau:
 *   **Sách:** "Linux Command Line and Shell Scripting Bible" là một tài liệu rất hay và chuyên sâu về dòng lệnh Linux.
 *   **Khóa học trực tuyến:** Các nền tảng như Udemy, Coursera hay các trung tâm tin học đều có các khóa học quản trị hệ thống Linux từ cơ bản đến nâng cao.
-

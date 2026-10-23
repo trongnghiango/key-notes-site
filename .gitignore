@@ -24,3 +24,14 @@ bin-release/
 # Backup Files
 combine
 project_context.md
+# Wrangler
+.wrangler/
+
+# Hugo resources
+resources/_gen/
+.hugo_build.lock
+
+# Node / PNPM
+node_modules/
+.pnpm-debug.log*
+

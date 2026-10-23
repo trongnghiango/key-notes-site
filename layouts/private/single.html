@@ -1,0 +1,24 @@
+{{ define "main" }}
+  <main>
+    <article class="private-article">
+      <header class="post-header">
+        <div style="display:inline-flex; align-items:center; gap:6px; margin-bottom:8px; padding:4px 10px; border-radius:6px; background:#ef444415; border:1px solid #ef444440; color:#ef4444; font-size:0.85em; font-weight:600;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+          <span>Ghi chú riêng tư (Private Note)</span>
+        </div>
+        <h1 class="title">{{ .Title }}</h1>
+        {{ with .Params.subtitle }}<h3 class="subtitle">{{ . }}</h3>{{ end }}
+        {{ partial "postMeta.html" . }}
+      </header>
+      
+      {{ if .Params.toc }}
+        <aside id="toc-container">
+          <h2 id="toc-title">Mục lục</h2>
+          {{ .TableOfContents }}
+        </aside>
+      {{ end }}
+
+      <div class="content">{{ .Content }}</div>
+    </article>
+  </main>
+{{ end }}
