@@ -54,8 +54,8 @@ html, body, #root, h1, h2, h3, h4, h5, h6, input, button, textarea, p, a, span, 
 }
 
 html {
-  font-size: 16px;
-  line-height: 1.7;
+  font-size: 20px;
+  line-height: 1.75;
   background-color: var(--bg);
   color: var(--text);
   text-rendering: optimizeSpeed;
@@ -115,13 +115,13 @@ header {
 }
 
 #brand h1 {
-  font-size: 1.6rem;
+  font-size: 1.85rem;
   font-weight: bold;
   line-height: 1.2;
 }
 
 #brand h3 {
-  font-size: 0.88rem;
+  font-size: 1.05rem;
   font-weight: normal;
   color: var(--text-muted);
   margin-top: 4px;
@@ -143,7 +143,7 @@ nav {
 }
 
 nav a {
-  font-size: 0.92rem;
+  font-size: 1.05rem;
   font-weight: bold;
   color: var(--text);
   text-decoration: none;
@@ -198,14 +198,26 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: bold;
 }
 
-h1 { font-size: 1.75rem; }
-h2 { font-size: 1.35rem; border-bottom: 1px solid var(--border-light); padding-bottom: 0.3rem; }
-h3 { font-size: 1.15rem; }
-h4 { font-size: 1.05rem; }
+h1 { font-size: 2.3rem; }
+h2 { font-size: 1.8rem; border-bottom: 2px solid var(--border-light); padding-bottom: 0.4rem; }
+h3 { font-size: 1.45rem; }
+h4 { font-size: 1.25rem; }
 
 p {
-  margin-bottom: 1.15rem;
-  line-height: 1.7;
+  font-size: 1.08rem;
+  margin-bottom: 1.3rem;
+  line-height: 1.8;
+}
+
+.content p,
+.content li,
+.content blockquote p {
+  font-size: 1.08rem;
+  line-height: 1.8;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  -webkit-hyphens: auto;
 }
 
 a {
@@ -244,7 +256,7 @@ hr {
 
 /* --- POST META --- */
 .post-meta {
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   color: var(--text-muted);
   margin-bottom: 1.5rem;
   line-height: 1.6;
@@ -263,25 +275,25 @@ hr {
   display: inline-block;
   background: var(--bg-surface);
   border: 1px solid var(--border);
-  padding: 1px 6px;
-  border-radius: 3px;
-  margin-right: 4px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-right: 6px;
   margin-top: 4px;
-  font-size: 0.8rem;
+  font-size: 0.88rem;
 }
 
 /* --- CODE BLOCKS --- */
 code {
-  font-size: 0.9em;
+  font-size: 0.98em;
   background-color: var(--bg-code);
   border: 1px solid var(--border);
-  padding: 2px 5px;
-  border-radius: 3px;
+  padding: 3px 6px;
+  border-radius: 4px;
 }
 
 pre {
-  font-size: 0.88rem;
-  line-height: 1.55;
+  font-size: 0.98rem;
+  line-height: 1.6;
   background-color: var(--bg-code) !important;
   border: 1px solid var(--border);
   border-radius: 6px;
@@ -434,7 +446,7 @@ footer a:hover {
 }
 
 .hero-title {
-  font-size: 1.85rem;
+  font-size: 2.15rem;
   font-weight: bold;
   line-height: 1.25;
   margin: 0 0 0.8rem;
@@ -445,8 +457,8 @@ footer a:hover {
 }
 
 .hero-bio {
-  font-size: 1rem;
-  line-height: 1.65;
+  font-size: 1.12rem;
+  line-height: 1.75;
   margin-bottom: 1.2rem;
 }
 
@@ -464,8 +476,8 @@ footer a:hover {
   background-color: var(--accent);
   color: #ffffff !important;
   font-weight: bold;
-  font-size: 0.88rem;
-  padding: 8px 14px;
+  font-size: 1rem;
+  padding: 9px 16px;
   border-radius: 6px;
   text-decoration: none !important;
 }
@@ -478,8 +490,8 @@ footer a:hover {
   border: 1px solid var(--border);
   color: var(--text) !important;
   font-weight: bold;
-  font-size: 0.88rem;
-  padding: 8px 14px;
+  font-size: 1rem;
+  padding: 9px 16px;
   border-radius: 6px;
   text-decoration: none !important;
 }
@@ -568,7 +580,7 @@ footer a:hover {
 }
 
 .card-title {
-  font-size: 1.05rem;
+  font-size: 1.22rem;
   margin: 0 0 0.5rem;
   line-height: 1.35;
 }
@@ -583,8 +595,8 @@ footer a:hover {
 }
 
 .card-description {
-  font-size: 0.85rem;
-  line-height: 1.5;
+  font-size: 0.98rem;
+  line-height: 1.6;
   color: var(--text);
   margin-bottom: 0.8rem;
   flex: 1 0 auto;
@@ -626,14 +638,14 @@ footer a:hover {
 }
 
 .timeline-date {
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   color: var(--text-muted);
   flex-shrink: 0;
-  width: 48px;
+  width: 56px;
 }
 
 .timeline-link {
-  font-size: 0.98rem;
+  font-size: 1.08rem;
   color: var(--text);
   text-decoration: none;
   flex: 1;
@@ -778,7 +790,7 @@ footer a:hover {
 }
 
 .year-title {
-  font-size: 1.35rem;
+  font-size: 1.65rem;
   margin: 0;
 }
 
