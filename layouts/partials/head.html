@@ -25,10 +25,6 @@
   <meta property="og:url" content="{{ .Permalink }}" />
   {{ with .Params.image }}<meta property="og:image" content="{{ . | absURL }}" />{{ end }}
 
-  {{/* Font Preload for zero CLS and instant rendering */}}
-  <link rel="preload" href="/fonts/iosevka-regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/fonts/iosevka-bold.woff2" as="font" type="font/woff2" crossorigin>
-
   {{/* 2. Xử lý Asset Pipeline cho CSS */}}
   {{ $styles := slice 
     (resources.Get "css/font.css")

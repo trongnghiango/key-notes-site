@@ -1,90 +1,76 @@
 /* ==========================================================================
-   OMARCHY THEME - MINIMALIST & E-READER OPTIMIZED (PINE / FOREST GREEN)
-   Tối giản tối đa, không animation giật màn hình E-ink, tốc độ tải cực nhanh.
+   OMARCHY MONOSPACE THEME (Iosevka Native / Forest Green / E-Reader Ultra-Fast)
+   100% font Iosevka cũ của Kaka Notes, tối giản tối đa, không giật màn hình E-ink.
    ========================================================================== */
 
-/* --- 1. DESIGN TOKENS (Hệ màu Omarchy Linux) --- */
 :root {
-  /* Font Stacks: Ưu tiên font hệ thống máy đọc sách nếu không load được webfont */
-  --font-body: "Charter", "Bitstream Charter", "Sitka Text", "Cambria", Georgia, serif;
-  --font-headings: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-mono: "Iosevka", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  /* FONT CŨ ĐẶC TRƯNG CỦA KAKA NOTES: Toàn bộ dùng Iosevka Monospace */
+  --font-family: 'Iosevka', monospace;
 
-  /* LIGHT MODE (Màu giấy đọc sách ấm tự nhiên + Xanh rêu đậm) */
+  /* LIGHT MODE (Màu giấy đọc sách tự nhiên + Xanh rêu đậm) */
   --bg: #fafbf8;
   --bg-surface: #f1f4ec;
   --bg-code: #edf1e8;
   --border: #d4ded2;
   --border-light: #e4ece2;
 
-  --text: #111c18;              /* Omarchy background làm chữ: cực kỳ sắc nét trên E-ink */
-  --text-muted: #4e6557;        /* Chữ phụ xám rêu */
-  --heading: #0f2b1d;           /* Rêu đậm uy nghiêm */
+  --text: #111c18;
+  --text-muted: #4e6557;
+  --heading: #0f2b1d;
   
-  --accent: #2e7d4d;            /* Omarchy green đậm */
+  --accent: #2e7d4d;
   --accent-hover: #1f5d36;
-  --accent-pine: #3c7d60;       /* Pine green */
   --link: #246e3e;
-  --link-visited: #3c7d60;
-
-  --max-width: 68ch;            /* Cột đọc sách chuẩn vàng 68 ký tự */
 }
 
-/* DARK MODE (Chuẩn 100% Palette Omarchy Linux: Pine / Deep Forest) */
+/* DARK MODE (100% Hệ màu Omarchy Linux: Pine / Deep Forest) */
 html.dark {
-  --bg: #111c18;                /* Nền rêu đen đặc trưng Omarchy */
-  --bg-surface: #182621;        /* lighter_background */
-  --bg-code: #0c1512;           /* dark_background */
-  --border: #32473B;            /* selection Omarchy */
+  --bg: #111c18;
+  --bg-surface: #182621;
+  --bg-code: #0c1512;
+  --border: #32473B;
   --border-light: #23372B;
 
-  --text: #D6D5BC;              /* light_foreground: kem ấm nhã nhặn, chống mỏi mắt */
-  --text-muted: #81B8A8;        /* dark_foreground */
-  --heading: #F7E8B2;           /* bright_foreground: vàng kem sáng sang trọng */
+  --text: #C1C497;
+  --text-muted: #81B8A8;
+  --heading: #F7E8B2;
 
-  --accent: #549e6a;            /* green Omarchy */
-  --accent-hover: #63b07a;      /* bright_green */
-  --accent-pine: #509475;       /* accent / blue Omarchy */
+  --accent: #549e6a;
+  --accent-hover: #63b07a;
   --link: #63b07a;
-  --link-visited: #81B8A8;
 }
 
-/* --- 2. CSS RESET TỐI GIẢN --- */
+/* --- RESET & TYPOGRAPHY: 100% IOSEVKA --- */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  animation: none !important;
+  transition: none !important;
+}
+
+html, body, #root, h1, h2, h3, h4, h5, h6, input, button, textarea, p, a, span, code, pre, time {
+  font-family: var(--font-family);
 }
 
 html {
-  font-size: 17px;
-  line-height: 1.75;
+  font-size: 16px;
+  line-height: 1.7;
   background-color: var(--bg);
   color: var(--text);
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeSpeed;
 }
 
 body {
-  font-family: var(--font-body);
   background-color: var(--bg);
   color: var(--text);
   min-height: 100vh;
 }
 
-/* Triệt tiêu hoàn toàn animations & transitions cho E-reader */
-*, *::before, *::after {
-  animation-duration: 0.001ms !important;
-  animation-iteration-count: 1 !important;
-  transition-duration: 0.001ms !important;
-}
-
-/* --- 3. LAYOUT CƠ BẢN --- */
 #root {
   max-width: 760px;
   margin: 0 auto;
-  padding: 24px 20px 48px;
+  padding: 18px 16px 40px;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -94,7 +80,7 @@ body {
   flex: 1 0 auto;
 }
 
-/* --- 4. HEADER & NAVIGATION --- */
+/* --- HEADER (3px BORDER DỨT KHOÁT) --- */
 header {
   margin-bottom: 2.25rem;
   padding-bottom: 1.25rem;
@@ -104,7 +90,7 @@ header {
 #brand {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
   margin-bottom: 1rem;
 }
 
@@ -116,23 +102,20 @@ header {
   background: var(--bg-surface);
 }
 
-#brand .text a {
+#brand a {
   text-decoration: none;
   color: var(--heading);
 }
 
 #brand h1 {
-  font-family: var(--font-headings);
   font-size: 1.6rem;
-  font-weight: 700;
+  font-weight: bold;
   line-height: 1.2;
-  letter-spacing: -0.02em;
 }
 
 #brand h3 {
-  font-family: var(--font-headings);
-  font-size: 0.9rem;
-  font-weight: 400;
+  font-size: 0.88rem;
+  font-weight: normal;
   color: var(--text-muted);
   margin-top: 4px;
 }
@@ -141,24 +124,23 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
   flex-wrap: wrap;
 }
 
 nav {
   display: flex;
-  gap: 16px;
+  gap: 12px;
   align-items: center;
   flex-wrap: wrap;
 }
 
 nav a {
-  font-family: var(--font-headings);
-  font-size: 0.95rem;
-  font-weight: 600;
+  font-size: 0.92rem;
+  font-weight: bold;
   color: var(--text);
   text-decoration: none;
-  padding: 6px 10px;
+  padding: 4px 8px;
   border-radius: 4px;
 }
 
@@ -173,13 +155,13 @@ nav a.active {
   border: 1px solid var(--border);
   color: var(--text);
   cursor: pointer;
-  padding: 6px 12px;
+  padding: 5px 10px;
   border-radius: 6px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 40px;
-  min-height: 36px;
+  min-width: 38px;
+  min-height: 34px;
 }
 
 #theme-toggle svg {
@@ -190,26 +172,23 @@ nav a.active {
 html:not(.dark) .icon-moon { display: none; }
 html.dark .icon-sun { display: none; }
 
-/* --- 5. TYPOGRAPHY (CHUẨN SÁCH ĐỌC & MÁY ĐỌC SÁCH) --- */
+/* --- BASE PROSE STYLES --- */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-headings);
   color: var(--heading);
   line-height: 1.3;
   margin-top: 1.8rem;
   margin-bottom: 0.8rem;
-  font-weight: 700;
-  letter-spacing: -0.015em;
+  font-weight: bold;
 }
 
-h1 { font-size: 1.85rem; }
-h2 { font-size: 1.45rem; border-bottom: 1px solid var(--border-light); padding-bottom: 0.3rem; }
-h3 { font-size: 1.25rem; }
-h4 { font-size: 1.1rem; }
+h1 { font-size: 1.75rem; }
+h2 { font-size: 1.35rem; border-bottom: 1px solid var(--border-light); padding-bottom: 0.3rem; }
+h3 { font-size: 1.15rem; }
+h4 { font-size: 1.05rem; }
 
 p {
-  margin-top: 0;
-  margin-bottom: 1.25rem;
-  color: var(--text);
+  margin-bottom: 1.15rem;
+  line-height: 1.7;
 }
 
 a {
@@ -223,38 +202,31 @@ a:hover {
 }
 
 ul, ol {
-  margin-top: 0;
-  margin-bottom: 1.25rem;
-  padding-left: 1.6rem;
+  margin-bottom: 1.15rem;
+  padding-left: 1.5rem;
 }
 
 li {
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.3rem;
 }
 
 blockquote {
   border-left: 3px solid var(--accent);
   background-color: var(--bg-surface);
-  padding: 12px 18px;
-  margin: 1.5rem 0;
-  border-radius: 0 6px 6px 0;
-  font-style: italic;
+  padding: 10px 16px;
+  margin: 1.2rem 0;
+  border-radius: 0 4px 4px 0;
   color: var(--text);
-}
-
-blockquote p:last-child {
-  margin-bottom: 0;
 }
 
 hr {
   border: 0;
   border-top: 3px solid var(--border);
-  margin: 2.5rem 0;
+  margin: 2rem 0;
 }
 
-/* --- 6. POST META & TAXONOMY --- */
+/* --- POST META --- */
 .post-meta {
-  font-family: var(--font-headings);
   font-size: 0.85rem;
   color: var(--text-muted);
   margin-bottom: 1.5rem;
@@ -274,49 +246,82 @@ hr {
   display: inline-block;
   background: var(--bg-surface);
   border: 1px solid var(--border);
-  padding: 1px 8px;
-  border-radius: 4px;
-  margin-right: 6px;
+  padding: 1px 6px;
+  border-radius: 3px;
+  margin-right: 4px;
   margin-top: 4px;
   font-size: 0.8rem;
 }
 
-/* --- 7. ARTICLE SUMMARY (TRANG CHỦ) --- */
-.summary {
-  margin-bottom: 2.2rem;
-  padding-bottom: 1.8rem;
-  border-bottom: 1px solid var(--border-light);
+/* --- CODE BLOCKS --- */
+code {
+  font-size: 0.9em;
+  background-color: var(--bg-code);
+  border: 1px solid var(--border);
+  padding: 2px 5px;
+  border-radius: 3px;
 }
 
-.summary .title {
-  margin-top: 0;
-  margin-bottom: 0.4rem;
-  font-size: 1.45rem;
+pre {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  background-color: var(--bg-code) !important;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 12px 14px;
+  overflow-x: auto;
+  margin: 1.2rem 0;
 }
 
-.summary .title a {
-  text-decoration: none;
-  color: var(--heading);
+pre code {
+  background-color: transparent !important;
+  border: 0;
+  padding: 0;
 }
 
-.summary .title a:hover {
-  color: var(--accent);
+.code-block-wrapper {
+  position: relative;
+  margin: 1.2rem 0;
 }
 
-/* --- 8. MỤC LỤC (TOC) --- */
+.code-block-wrapper pre {
+  margin: 0;
+}
+
+.copy-code-button {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  border-radius: 4px;
+  padding: 3px 7px;
+  font-size: 0.72rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.copy-code-button:hover {
+  color: var(--text);
+  border-color: var(--accent);
+}
+
+/* --- TOC --- */
 #toc-container {
   background: var(--bg-surface);
   border: 1px solid var(--border);
   border-radius: 6px;
-  padding: 14px 20px;
-  margin: 1.8rem 0;
+  padding: 12px 16px;
+  margin: 1.5rem 0;
 }
 
 #toc-title {
-  font-size: 1rem;
-  font-weight: 700;
-  margin: 0 0 8px 0;
-  color: var(--heading);
+  font-size: 0.95rem;
+  font-weight: bold;
+  margin: 0 0 6px 0;
   border-bottom: 0;
   padding-bottom: 0;
 }
@@ -329,124 +334,51 @@ hr {
 #TableOfContents a {
   text-decoration: none;
   color: var(--text-muted);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 }
 
 #TableOfContents a:hover {
   color: var(--accent);
 }
 
-/* --- 9. CODE BLOCKS & SYNTAX HIGHLIGHTING --- */
-code {
-  font-family: var(--font-mono);
-  font-size: 0.88em;
-  background-color: var(--bg-code);
-  border: 1px solid var(--border);
-  padding: 2px 6px;
-  border-radius: 4px;
-  color: var(--text);
-}
-
-pre {
-  font-family: var(--font-mono);
-  font-size: 0.88rem;
-  line-height: 1.6;
-  background-color: var(--bg-code) !important;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 14px 16px;
-  overflow-x: auto;
-  margin: 1.5rem 0;
-}
-
-pre code {
-  background-color: transparent !important;
-  border: 0;
-  padding: 0;
-  font-size: inherit;
-}
-
-/* Wrapper khối code & Nút copy */
-.code-block-wrapper {
-  position: relative;
-  margin: 1.5rem 0;
-}
-
-.code-block-wrapper pre {
-  margin: 0;
-}
-
-.copy-code-button {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  background: var(--bg-surface);
-  border: 1px solid var(--border);
-  color: var(--text-muted);
-  border-radius: 4px;
-  padding: 4px 8px;
-  font-size: 0.75rem;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.copy-code-button:hover {
-  color: var(--text);
-  border-color: var(--accent);
-}
-
-/* --- 10. HÌNH ẢNH & MEDIA --- */
+/* --- MEDIA & TABLES --- */
 img {
   max-width: 100%;
   height: auto;
   display: block;
-  margin: 1.5rem auto;
-  border-radius: 6px;
+  margin: 1.2rem auto;
+  border-radius: 4px;
   border: 1px solid var(--border);
 }
 
-/* --- 11. BẢNG BIỂU (TABLES) --- */
 table {
   width: 100%;
   border-collapse: collapse;
-  margin: 1.5rem 0;
-  font-size: 0.95rem;
+  margin: 1.2rem 0;
+  font-size: 0.9rem;
 }
 
 th, td {
   border: 1px solid var(--border);
-  padding: 8px 12px;
+  padding: 6px 10px;
   text-align: left;
 }
 
 th {
   background-color: var(--bg-surface);
   color: var(--heading);
-  font-weight: 600;
+  font-weight: bold;
 }
 
-/* --- 12. PHÂN TRANG (PAGINATION) --- */
-.pagination {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 2rem;
-  font-family: var(--font-headings);
-  font-size: 0.9rem;
-}
-
-/* --- 13. FOOTER --- */
+/* --- FOOTER (3px BORDER DỨT KHOÁT) --- */
 footer {
   margin-top: 3.5rem;
   padding-top: 2rem;
-  border-top: 2px solid var(--border);
-  font-family: var(--font-headings);
+  border-top: 3px solid var(--border);
   font-size: 0.85rem;
   color: var(--text-muted);
   text-align: center;
-  line-height: 1.8;
+  line-height: 1.7;
 }
 
 footer a {
@@ -457,186 +389,11 @@ footer a:hover {
   color: var(--accent);
 }
 
-/* --- 14. E-INK & MONOCHROME SPECIFIC MEDIA QUERIES --- */
-@media (monochrome), (prefers-contrast: more) {
-  body {
-    background-color: #ffffff !important;
-    color: #000000 !important;
-  }
-  a {
-    color: #000000 !important;
-    text-decoration: underline !important;
-  }
-  h1, h2, h3, h4, h5, h6 {
-    color: #000000 !important;
-  }
-  pre, code, blockquote {
-    background: #f0f0f0 !important;
-    border-color: #000000 !important;
-    color: #000000 !important;
-  }
-}
-/* --- 15. HOME TIMELINE ARCHIVE (TỐI ƯU GIAO DIỆN TRANG CHỦ) --- */
-.home-intro {
-  margin-bottom: 2rem;
-  padding: 16px 18px;
-  background-color: var(--bg-surface);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-}
-
-.intro-bio {
-  font-size: 1.05rem;
-  line-height: 1.6;
-  margin-bottom: 0.8rem;
-  color: var(--text);
-}
-
-.topic-pills {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 8px;
-  font-family: var(--font-headings);
-  font-size: 0.82rem;
-}
-
-.topic-label {
-  color: var(--text-muted);
-  font-weight: 600;
-  margin-right: 2px;
-}
-
-.topic-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  background-color: var(--bg);
-  border: 1px solid var(--border);
-  color: var(--text);
-  padding: 3px 8px;
-  border-radius: 4px;
-  text-decoration: none;
-}
-
-.topic-pill:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-}
-
-.topic-count {
-  color: var(--text-muted);
-  font-size: 0.75rem;
-  opacity: 0.85;
-}
-
-/* Timeline Year Header */
-.timeline-year-group {
-  margin-bottom: 2.2rem;
-}
-
-.timeline-year-header {
-  display: flex;
-  align-items: baseline;
-  gap: 12px;
-  margin-bottom: 0.8rem;
-}
-
-.year-title {
-  font-family: var(--font-headings);
-  font-size: 1.45rem;
-  font-weight: 700;
-  color: var(--heading);
-  margin: 0;
-  border-bottom: 0;
-  padding-bottom: 0;
-}
-
-.year-count {
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  color: var(--text-muted);
-}
-
-.year-divider {
-  flex: 1;
-  border-bottom: 1px solid var(--border-light);
-  transform: translateY(-4px);
-}
-
-/* Timeline List & Items */
-.timeline-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.timeline-item {
-  display: flex;
-  align-items: baseline;
-  gap: 12px;
-  padding: 8px 6px;
-  border-bottom: 1px dashed var(--border-light);
-}
-
-.timeline-item:last-child {
-  border-bottom: none;
-}
-
-.timeline-date {
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  flex-shrink: 0;
-  width: 50px;
-}
-
-.timeline-link {
-  font-size: 1.02rem;
-  color: var(--text);
-  text-decoration: none;
-  flex: 1;
-  line-height: 1.45;
-}
-
-.timeline-link:hover {
-  color: var(--accent);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
-.timeline-meta {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-shrink: 0;
-  font-family: var(--font-headings);
-  font-size: 0.78rem;
-}
-
-.timeline-tag {
-  background-color: var(--bg-surface);
-  border: 1px solid var(--border);
-  color: var(--text-muted);
-  padding: 1px 6px;
-  border-radius: 3px;
-}
-
-.timeline-reading-time {
-  color: var(--text-muted);
-  opacity: 0.8;
-}
-
-@media (max-width: 560px) {
-  .timeline-meta {
-    display: none; /* Ẩn bớt meta trên màn hình máy đọc sách siêu nhỏ để tránh tràn */
-  }
-}
-/* --- 16. PROFESSIONAL ENGINEERING HOME PORTAL --- */
+/* --- HERO PORTAL (TRANG CHỦ CHUYÊN NGHIỆP) --- */
 .hero-section {
-  padding: 1.5rem 0 2.2rem;
+  padding-bottom: 1.8rem;
   border-bottom: 1px solid var(--border-light);
-  margin-bottom: 2.2rem;
+  margin-bottom: 2rem;
 }
 
 .hero-badge {
@@ -645,50 +402,41 @@ footer a:hover {
   gap: 8px;
   background-color: var(--bg-surface);
   border: 1px solid var(--border);
-  padding: 4px 12px;
+  padding: 3px 10px;
   border-radius: 9999px;
-  font-family: var(--font-headings);
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   color: var(--text-muted);
-  margin-bottom: 1.2rem;
+  margin-bottom: 1rem;
 }
 
 .hero-badge-dot {
-  width: 7px;
-  height: 7px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   background-color: var(--accent);
 }
 
 .hero-title {
-  font-size: 2.1rem;
-  font-weight: 700;
+  font-size: 1.85rem;
+  font-weight: bold;
   line-height: 1.25;
-  margin-top: 0;
-  margin-bottom: 1rem;
-  color: var(--heading);
-  letter-spacing: -0.025em;
+  margin: 0 0 0.8rem;
 }
 
 .hero-name {
   color: var(--accent);
-  text-decoration: underline;
-  text-decoration-color: var(--border);
-  text-underline-offset: 4px;
 }
 
 .hero-bio {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  color: var(--text);
-  margin-bottom: 1.5rem;
-  max-width: 65ch;
+  font-size: 1rem;
+  line-height: 1.65;
+  margin-bottom: 1.2rem;
 }
 
 .hero-actions {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   flex-wrap: wrap;
 }
 
@@ -698,17 +446,11 @@ footer a:hover {
   gap: 6px;
   background-color: var(--accent);
   color: #ffffff !important;
-  font-family: var(--font-headings);
-  font-weight: 600;
-  font-size: 0.92rem;
-  padding: 8px 16px;
+  font-weight: bold;
+  font-size: 0.88rem;
+  padding: 8px 14px;
   border-radius: 6px;
   text-decoration: none !important;
-  min-height: 40px;
-}
-
-.btn-primary:hover {
-  background-color: var(--accent-hover);
 }
 
 .btn-secondary {
@@ -718,18 +460,11 @@ footer a:hover {
   background-color: var(--bg-surface);
   border: 1px solid var(--border);
   color: var(--text) !important;
-  font-family: var(--font-headings);
-  font-weight: 600;
-  font-size: 0.92rem;
-  padding: 8px 16px;
+  font-weight: bold;
+  font-size: 0.88rem;
+  padding: 8px 14px;
   border-radius: 6px;
   text-decoration: none !important;
-  min-height: 40px;
-}
-
-.btn-secondary:hover {
-  border-color: var(--accent);
-  color: var(--accent) !important;
 }
 
 .hero-social-links {
@@ -739,7 +474,6 @@ footer a:hover {
 }
 
 .social-tag {
-  font-family: var(--font-headings);
   font-size: 0.82rem;
   color: var(--text-muted) !important;
   text-decoration: none !important;
@@ -754,32 +488,29 @@ footer a:hover {
   border-color: var(--accent);
 }
 
-/* Section Headings */
+/* Home Section Layout */
 .home-section {
-  margin-bottom: 2.8rem;
+  margin-bottom: 2.2rem;
 }
 
 .section-title-row {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1rem;
   border-bottom: 1px solid var(--border-light);
-  padding-bottom: 0.5rem;
+  padding-bottom: 0.4rem;
 }
 
 .section-heading {
-  font-size: 1.35rem;
-  font-weight: 700;
-  color: var(--heading);
+  font-size: 1.25rem;
   margin: 0;
   border-bottom: none;
   padding-bottom: 0;
 }
 
-.section-link {
-  font-family: var(--font-headings);
-  font-size: 0.88rem;
+.section-link, .section-hint {
+  font-size: 0.82rem;
   color: var(--text-muted);
   text-decoration: none;
 }
@@ -789,56 +520,40 @@ footer a:hover {
   text-decoration: underline;
 }
 
-.section-hint {
-  font-family: var(--font-headings);
-  font-size: 0.82rem;
-  color: var(--text-muted);
-}
-
-/* Featured Grid & Cards */
+/* Featured Cards Grid */
 .featured-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 14px;
 }
 
 .featured-card {
   background-color: var(--bg-surface);
   border: 1px solid var(--border);
   border-radius: 6px;
-  padding: 16px 18px;
+  padding: 14px 16px;
   display: flex;
   flex-direction: column;
-}
-
-.featured-card:hover {
-  border-color: var(--accent);
 }
 
 .card-meta {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family: var(--font-headings);
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   color: var(--text-muted);
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.5rem;
 }
 
 .card-category {
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  font-weight: bold;
   color: var(--accent);
 }
 
 .card-title {
-  font-size: 1.12rem;
-  font-weight: 700;
-  line-height: 1.4;
-  margin-top: 0;
-  margin-bottom: 0.6rem;
-  flex: 0 0 auto;
+  font-size: 1.05rem;
+  margin: 0 0 0.5rem;
+  line-height: 1.35;
 }
 
 .card-title a {
@@ -851,10 +566,10 @@ footer a:hover {
 }
 
 .card-description {
-  font-size: 0.92rem;
-  line-height: 1.55;
+  font-size: 0.85rem;
+  line-height: 1.5;
   color: var(--text);
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
   flex: 1 0 auto;
 }
 
@@ -862,23 +577,80 @@ footer a:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family: var(--font-headings);
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   color: var(--text-muted);
   border-top: 1px dashed var(--border-light);
-  padding-top: 8px;
-  margin-top: auto;
+  padding-top: 6px;
 }
 
 .card-read-link {
   color: var(--accent);
-  font-weight: 600;
+  font-weight: bold;
   text-decoration: none;
 }
 
-/* Archive Callout Button */
+/* Timeline Lists */
+.timeline-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.timeline-item {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding: 6px 4px;
+  border-bottom: 1px dashed var(--border-light);
+}
+
+.timeline-item:last-child {
+  border-bottom: none;
+}
+
+.timeline-date {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  flex-shrink: 0;
+  width: 48px;
+}
+
+.timeline-link {
+  font-size: 0.98rem;
+  color: var(--text);
+  text-decoration: none;
+  flex: 1;
+  line-height: 1.45;
+}
+
+.timeline-link:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.timeline-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  font-size: 0.78rem;
+}
+
+.timeline-tag {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+
+.timeline-reading-time {
+  color: var(--text-muted);
+  opacity: 0.8;
+}
+
 .archive-callout {
-  margin-top: 1.5rem;
+  margin-top: 1.2rem;
   text-align: center;
 }
 
@@ -891,47 +663,43 @@ footer a:hover {
   background-color: var(--bg-surface);
   border: 1px dashed var(--border);
   color: var(--text) !important;
-  font-family: var(--font-headings);
-  font-size: 0.92rem;
-  font-weight: 600;
-  padding: 10px 16px;
+  font-size: 0.88rem;
+  font-weight: bold;
+  padding: 9px;
   border-radius: 6px;
   text-decoration: none !important;
 }
 
 .btn-more-posts:hover {
   border-color: var(--accent);
-  border-style: solid;
   color: var(--accent) !important;
 }
 
-/* Focus Areas Grid */
+/* Areas Grid */
 .areas-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px;
 }
 
 .area-card {
   background-color: var(--bg-surface);
   border: 1px solid var(--border);
   border-radius: 6px;
-  padding: 16px 18px;
+  padding: 14px;
 }
 
 .area-title {
-  font-size: 1.05rem;
-  font-weight: 700;
-  margin-top: 0;
-  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  margin: 0 0 0.4rem;
   color: var(--heading);
 }
 
 .area-desc {
-  font-size: 0.88rem;
-  line-height: 1.55;
+  font-size: 0.85rem;
+  line-height: 1.5;
   color: var(--text-muted);
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.6rem;
 }
 
 .area-tags {
@@ -941,24 +709,78 @@ footer a:hover {
 }
 
 .area-tag {
-  font-family: var(--font-headings);
   font-size: 0.78rem;
   color: var(--text-muted);
   text-decoration: none;
   background-color: var(--bg);
   border: 1px solid var(--border-light);
-  padding: 1px 6px;
+  padding: 1px 5px;
   border-radius: 3px;
 }
 
-.area-tag:hover {
-  color: var(--accent);
-  border-color: var(--accent);
+/* Archive Page (/posts/) */
+.topic-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0.8rem 0 1.5rem;
+}
+
+.topic-label {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin-right: 4px;
+}
+
+.topic-pill {
+  display: inline-flex;
+  gap: 4px;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border);
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  text-decoration: none;
+  color: var(--text);
+}
+
+.topic-count {
+  color: var(--text-muted);
+  font-size: 0.72rem;
+}
+
+.timeline-year-group {
+  margin-bottom: 2rem;
+}
+
+.timeline-year-header {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 0.6rem;
+}
+
+.year-title {
+  font-size: 1.35rem;
+  margin: 0;
+}
+
+.year-count {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.year-divider {
+  flex: 1;
+  border-bottom: 1px solid var(--border-light);
 }
 
 @media (max-width: 640px) {
   .hero-social-links {
     margin-left: 0;
     width: 100%;
+  }
+  .timeline-meta {
+    display: none;
   }
 }
