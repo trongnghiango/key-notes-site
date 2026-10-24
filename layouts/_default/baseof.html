@@ -2,6 +2,14 @@
 <html lang="en">
   {{ partial "head.html" . }}
   <body>
+    <!-- Margin Gutter Width Toggles (Left & Right) -->
+    <aside class="margin-gutter gutter-left" title="Mở rộng / Thu hẹp (Toggle width)" aria-label="Thay đổi độ rộng lề">
+      <button class="width-toggle-btn" type="button" aria-label="Thay đổi độ rộng">
+        <svg class="icon-expand" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>
+        <svg class="icon-collapse" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 14 10 14 10 20"></polyline><polyline points="20 10 14 10 14 4"></polyline><line x1="14" y1="10" x2="21" y2="3"></line><line x1="10" y1="14" x2="3" y2="21"></line></svg>
+      </button>
+    </aside>
+
     <div id="root">
       {{ partial "header.html" . }}
       <div id="content">
@@ -10,10 +18,18 @@
       {{ partial "footer.html" . }}
     </div>
 
+    <aside class="margin-gutter gutter-right" title="Mở rộng / Thu hẹp (Toggle width)" aria-label="Thay đổi độ rộng lề">
+      <button class="width-toggle-btn" type="button" aria-label="Thay đổi độ rộng">
+        <svg class="icon-expand" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>
+        <svg class="icon-collapse" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 14 10 14 10 20"></polyline><polyline points="20 10 14 10 14 4"></polyline><line x1="14" y1="10" x2="21" y2="3"></line><line x1="10" y1="14" x2="3" y2="21"></line></svg>
+      </button>
+    </aside>
+
     {{/* Hugo Asset Pipeline: Bundle, Minify & Fingerprint JavaScript */}}
     {{ $jsTheme := resources.Get "js/theme-toggle.js" }}
+    {{ $jsWidth := resources.Get "js/width-toggle.js" }}
     {{ $jsCopy := resources.Get "js/copy-code.js" }}
-    {{ $jsBundle := slice $jsTheme $jsCopy | resources.Concat "js/main.bundle.js" | minify | fingerprint }}
+    {{ $jsBundle := slice $jsTheme $jsWidth $jsCopy | resources.Concat "js/main.bundle.js" | minify | fingerprint }}
     <script src="{{ $jsBundle.RelPermalink }}" integrity="{{ $jsBundle.Data.Integrity }}" crossorigin="anonymous" defer></script>
   </body>
 </html>

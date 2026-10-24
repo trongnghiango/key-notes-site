@@ -44,6 +44,10 @@
       if (theme === 'dark' || (theme !== 'light' && prefersDark)) {
         document.documentElement.classList.add('dark');
       }
+
+      if (localStorage.getItem('reader-width') === 'wide') {
+        document.documentElement.classList.add('wide-mode');
+      }
     })();
   </script>
 
