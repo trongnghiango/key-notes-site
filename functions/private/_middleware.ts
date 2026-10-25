@@ -11,21 +11,13 @@ export const onRequest: PagesFunction<Env> = async (context) => {
   const expectedPass = env.PRIVATE_PASS || "kaka123";
 
   const url = new URL(request.url);
-
-  // 1. Kiểm tra tham số password từ URL hoặc Form submit
-  const queryPass = url.searchParams.get("pass") || url.searchParams.get("key");
   const cookieHeader = request.headers.get("Cookie") || "";
-  const hasAuthCookie = cookieHeader.includes("kaka_private_session=authenticated");
+  const isAuthenticated = cookieHeader.includes("kaka_private_session=authenticated");
 
-  // Nếu mật khẩu đúng hoặc đã có cookie phiên hợp lệ
-  if (queryPass === expectedPass || hasAuthCookie) {
+  // 1. Nếu đã có Cookie phiên đăng nhập hợp lệ -> Cho phép truy cập ngay
+  if (isAuthenticated) {
     const response = await next();
     const newHeaders = new Headers(response.headers);
-    // Lưu cookie phiên trong 30 ngày (2592000 giây)
-    newHeaders.set(
-      "Set-Cookie",
-      "kaka_private_session=authenticated; Path=/private; Max-Age=2592000; HttpOnly; SameSite=Lax"
-    );
     newHeaders.set("Cache-Control", "no-store, no-cache, must-revalidate, private");
     newHeaders.set("X-Robots-Tag", "noindex, nofollow, noarchive");
     return new Response(response.body, {
@@ -35,7 +27,49 @@ export const onRequest: PagesFunction<Env> = async (context) => {
     });
   }
 
-  // 2. Kiểm tra HTTP Basic Auth (cho các CLI/cURL hoặc browser popup)
+  // 2. Xử lý FORM SUBMIT qua phương thức POST (Mật khẩu gửi ngầm trong body, KHÔNG lộ trên URL)
+  let hasWrongPass = false;
+  if (request.method === "POST") {
+    try {
+      const formData = await request.formData();
+      const submittedPass = formData.get("pass");
+
+      if (submittedPass === expectedPass) {
+        // Mật khẩu đúng: Chuyển hướng 302 về URL sạch (xóa hoàn toàn mọi tham số) và lưu Cookie 30 ngày
+        return new Response(null, {
+          status: 302,
+          headers: {
+            "Location": url.pathname,
+            "Set-Cookie": "kaka_private_session=authenticated; Path=/private; Max-Age=2592000; HttpOnly; SameSite=Lax",
+            "Cache-Control": "no-store",
+          },
+        });
+      } else {
+        hasWrongPass = true;
+      }
+    } catch {
+      hasWrongPass = true;
+    }
+  }
+
+  // 3. Nếu người dùng vô tình vào bằng URL có ?pass=... -> Tự động dọn dẹp URL sang 302 Redirect sạch
+  const queryPass = url.searchParams.get("pass") || url.searchParams.get("key");
+  if (queryPass) {
+    if (queryPass === expectedPass) {
+      return new Response(null, {
+        status: 302,
+        headers: {
+          "Location": url.pathname, // Xóa bỏ hoàn toàn query khỏi URL trên trình duyệt
+          "Set-Cookie": "kaka_private_session=authenticated; Path=/private; Max-Age=2592000; HttpOnly; SameSite=Lax",
+          "Cache-Control": "no-store",
+        },
+      });
+    } else {
+      hasWrongPass = true;
+    }
+  }
+
+  // 4. Kiểm tra HTTP Basic Auth (nếu truy cập qua curl hoặc terminal)
   const authHeader = request.headers.get("Authorization");
   if (authHeader && authHeader.startsWith("Basic ")) {
     try {
@@ -67,8 +101,7 @@ export const onRequest: PagesFunction<Env> = async (context) => {
     }
   }
 
-  // 3. Nếu chưa đăng nhập hoặc nhập sai pass: Trả về trang Lock Screen Omarchy giao diện đẹp
-  const hasWrongPass = queryPass && queryPass !== expectedPass;
+  // 5. Trả về Màn hình khóa với form POST an toàn (KHÔNG hiện pass trên URL)
   const loginHtml = `<!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -97,7 +130,7 @@ export const onRequest: PagesFunction<Env> = async (context) => {
     <h1>Khu Vực Riêng Tư</h1>
     <p>Trang này chứa ghi chú cá nhân được bảo vệ. Vui lòng nhập mật khẩu để mở khóa.</p>
     ${hasWrongPass ? '<div class="error">❌ Mật khẩu không chính xác. Thử lại!</div>' : ''}
-    <form method="GET" action="">
+    <form method="POST" action="">
       <input type="password" name="pass" placeholder="Nhập mật khẩu..." autofocus required />
       <button type="submit">Mở khóa 🔓</button>
     </form>
