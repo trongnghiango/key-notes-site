@@ -11,6 +11,6 @@
     "deploy": "hugo --gc --minify && wrangler pages deploy public --project-name=notes-ciquan"
   },
   "devDependencies": {
-    "wrangler": "^3.114.0"
+    "wrangler": "^4.152.0"
   }
 }
