@@ -5,6 +5,6 @@ date: {{ .Date }}
 private: true
 draft: false
 build:
-  list: never
+  list: local
   render: always
 ---

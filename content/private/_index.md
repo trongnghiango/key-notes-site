@@ -2,10 +2,10 @@
 title: "Private Notes"
 description: "Khu vực ghi chú cá nhân bảo mật"
 build:
-  list: never
+  list: local
   render: always
 cascade:
   build:
-    list: never
+    list: local
     render: always
 ---
